@@ -1,4 +1,7 @@
-package p3_UNIKUT.unikut;
+package InterfaceGrafica;
+import Logica.Conta;
+import Logica.Contas;
+
 import java.util.Locale;
 import java.util.Scanner;
 

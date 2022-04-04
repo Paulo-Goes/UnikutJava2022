@@ -1,4 +1,4 @@
-package p3_UNIKUT.unikut;
+package Logica;
 
 import java.util.Random;
 
