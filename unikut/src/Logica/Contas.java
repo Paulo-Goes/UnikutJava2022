@@ -1,16 +1,11 @@
 package Logica;
-
 import java.util.ArrayList;
 
 public class Contas {
-    private ArrayList<Conta> contas = new ArrayList<>();
+    private ArrayList<Conta> contas = new ArrayList<>(); //"Field Contas may be final"????
 
     private boolean isEmpty(){
-        if(this.contas.size() == 0){
-            return true;
-        }else{
-            return false;
-        }
+        return this.contas.size() == 0;
     }
 
     private boolean verifyLogin(Conta c){
@@ -41,8 +36,8 @@ public class Contas {
     }
 
     public void exibirContas(){
-        for(int i = 0; i < contas.size() - 1; i++){
-            System.out.println(contas.get(i));
+        for (Conta conta : contas) {
+            System.out.println(conta);
         }
     }
 }

@@ -54,6 +54,10 @@ public class Conta {
         return codigoRecuperacao;
     }
 
+    public void setCodigoRecuperacao(int codigoRecuperacao) {
+        this.codigoRecuperacao = criaCodigo();
+    }
+
     public boolean equals(Conta c){
         if(this.login.equals(c.getLogin())){
             return true;
@@ -61,11 +65,14 @@ public class Conta {
             return false;
         }
     }
+
     @Override
     public String toString() {
-        return "Conta [codigoRecuperacao=" + codigoRecuperacao + ", login=" + login + ", nome=" + nome + ", senha="
-                + senha + "]";
+        return "Conta{" +
+                "login: '" + login + '\'' +
+                ", nome: '" + nome + '\'' +
+                ", senha: '" + senha + '\'' +
+                ", codigoRecuperacao: " + codigoRecuperacao +
+                '}';
     }
-
-    
 }
