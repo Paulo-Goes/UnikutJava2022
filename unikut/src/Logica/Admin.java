@@ -1,7 +1,7 @@
 package Logica;
 
 public class Admin extends Conta{
-    public Admin(String login, String senha) {
+    public Admin() {
         super("ADMIN", "paofrances");
     }
 
