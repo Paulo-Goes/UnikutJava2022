@@ -21,16 +21,21 @@ public class Contas {
 
     public Conta login(String login){
         int s = search(login);
+        if(s == -1){
+            return null;
+        }
         return contas.get(s);
     }
 
     public int search(String login){
+        System.out.println("Procurando conta...");
         for (int i = 0; i < contas.size(); i++) {
             Conta conta = contas.get(i);
             if (conta.getLogin().equals(login)) {
                 return i;
             }
         }
+        System.out.println("Conta não encontrada!");
         return -1;
     }
 

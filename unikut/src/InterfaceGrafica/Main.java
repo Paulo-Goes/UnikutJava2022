@@ -107,8 +107,10 @@ public class Main {
         System.out.println("Digite o login: ");
         login = input.nextLine();
         Conta c = contas.login(login);
-        System.out.println("Digite o login: ");
-        codigo = input.nextInt();
-        c.recuperarSenha(login, codigo);
+        if(c != null){
+            System.out.println("Digite o codigo de recuperação: ");
+            codigo = input.nextInt();
+            c.recuperarSenha(login, codigo);
+        }
     }
 }

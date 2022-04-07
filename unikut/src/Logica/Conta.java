@@ -8,11 +8,11 @@ public class Conta implements Comparable<Conta> {
     private String nome;
     private String senha;
     private int codigoRecuperacao;
-        
-        @Override
-        public int compareTo(Conta c){
-            return c.getLogin().compareTo(this.login);
-        }
+
+    @Override
+    public int compareTo(Conta c){
+        return c.getLogin().compareTo(this.login);
+    }
 
     public Conta(String login, String senha){
         this.login = login;
@@ -27,8 +27,7 @@ public class Conta implements Comparable<Conta> {
         this.codigoRecuperacao = criaCodigo();
     }
 
-    public void recuperarSenha(String login, int cod){
-
+    public void recuperarSenha(String login, int codigo){
     }
 
     private int criaCodigo() {
