@@ -6,6 +6,5 @@ public class Admin extends Conta{
     }
 
     public void changeLogin(String c){
-        
     }
 }

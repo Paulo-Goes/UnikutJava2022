@@ -60,16 +60,12 @@ public class Conta implements Comparable<Conta> {
         return codigoRecuperacao;
     }
 
-    public void setCodigoRecuperacao(int codigoRecuperacao) {
+    public void setCodigoRecuperacao() {
         this.codigoRecuperacao = criaCodigo();
     }
 
     public boolean equals(Conta c){
-        if(this.login.equals(c.getLogin())){
-            return true;
-        }else{
-            return false;
-        }
+        return this.login.equals(c.getLogin());
     }
 
     @Override
@@ -81,6 +77,4 @@ public class Conta implements Comparable<Conta> {
                 ", codigoRecuperacao: " + codigoRecuperacao +
                 '}';
     }
-
-
 }
