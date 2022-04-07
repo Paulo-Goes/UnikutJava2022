@@ -46,10 +46,11 @@ public class Main {
                     break;
                 case '2':
                     System.out.println("O login será aqui!");
+                    break;
                 case '3':
                     System.out.println("Exibindo contas...");
-
                     contas.exibirContas();
+                    break;
                 case '4':
 
                 default:
