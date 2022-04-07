@@ -50,6 +50,8 @@ public class Main {
                     System.out.println("Exibindo contas...");
 
                     contas.exibirContas();
+                default:
+                    break;
             }
         } while (op != 5);
     }
