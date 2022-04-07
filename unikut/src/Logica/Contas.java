@@ -2,8 +2,8 @@ package Logica;
 import java.util.ArrayList;
 
 public class Contas {
-    private ArrayList<Conta> contas = new ArrayList<>();
-    Conta c;
+    protected ArrayList<Conta> contas = new ArrayList<>();
+
 
     private boolean isEmpty(){
         return this.contas.size() == 0;
@@ -19,12 +19,19 @@ public class Contas {
         return false;
     }
 
-    public Conta search(String login, int codigo){
-        for(int i = 0;i < contas.size();i++){
-            if(contas.get(i).getLogin().equals(login)){
-                return
+    public Conta login(String login){
+        int s = search(login);
+        return contas.get(s);
+    }
+
+    public int search(String login){
+        for (int i = 0; i < contas.size(); i++) {
+            Conta conta = contas.get(i);
+            if (conta.getLogin().equals(login)) {
+                return i;
             }
         }
+        return -1;
     }
 
     public void newAccount(Conta c){

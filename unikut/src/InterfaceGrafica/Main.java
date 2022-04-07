@@ -52,7 +52,7 @@ public class Main {
                     contas.exibirContas();
                     break;
                 case '4':
-                    recuperarSenha();
+                    recuperarSenha(contas);
                     break;
                 default:
                     break;
@@ -99,15 +99,16 @@ public class Main {
         return c;
     }
 
-    public static void recuperarSenha(){
+    public static void recuperarSenha(Contas contas){
         Scanner input  = new Scanner(System.in);
         String login;
         int codigo;
         System.out.println("/Interface de recuperação de conta/");
         System.out.println("Digite o login: ");
         login = input.nextLine();
+        Conta c = contas.login(login);
         System.out.println("Digite o login: ");
         codigo = input.nextInt();
-        Conta conta =
+        c.recuperarSenha(login, codigo);
     }
 }
