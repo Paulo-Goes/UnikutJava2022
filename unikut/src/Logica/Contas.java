@@ -2,7 +2,7 @@ package Logica;
 import java.util.ArrayList;
 
 public class Contas {
-    protected ArrayList<Conta> contas = new ArrayList<>();
+    private ArrayList<Conta> contas = new ArrayList<>();
 
 
     private boolean isEmpty(){
@@ -60,5 +60,8 @@ public class Contas {
         for (Conta conta : contas) {
             System.out.println(conta);
         }
+    }
+    public int getSize(){
+        return contas.size();
     }
 }
