@@ -52,7 +52,7 @@ public class Main {
                     contas.exibirContas();
                     break;
                 case '4':
-
+                    break;
                 default:
                     break;
             }
