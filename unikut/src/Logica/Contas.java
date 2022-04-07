@@ -10,8 +10,8 @@ public class Contas {
 
     private boolean verifyLogin(Conta c){
 
-        for(int i = 0; i < contas.size() - 1; i++){
-            if(contas.get(i).equals(c)){
+        for (Conta conta : contas) {
+            if (conta.equals(c)) {
                 return true;
             }
         }

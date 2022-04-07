@@ -3,7 +3,7 @@ package Logica;
 import java.util.Random;
 
 public class Conta {
-    private String login;
+    private final String login;
     private String nome;
     private String senha;
     private int codigoRecuperacao;
