@@ -2,11 +2,15 @@ package Logica;
 
 import java.util.Random;
 
-public class Conta {
+public class Conta implements Comparable<Conta>{
     private final String login;
     private String nome;
     private String senha;
     private int codigoRecuperacao;
+
+        public int compareTo(String l){
+            return l.compareTo(this.login);
+        }
 
     public Conta(String login, String senha){
         this.login = login;
