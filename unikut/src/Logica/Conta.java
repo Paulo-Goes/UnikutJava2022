@@ -8,9 +8,10 @@ public class Conta implements Comparable<Conta> {
     private String nome;
     private String senha;
     private int codigoRecuperacao;
-
-        public int compareTo(String l){
-            return l.compareTo(this.login);
+        
+        @Override
+        public int compareTo(Conta c){
+            return c.getLogin().compareTo(this.login);
         }
 
     public Conta(String login, String senha){
