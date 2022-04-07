@@ -2,7 +2,8 @@ package Logica;
 
 import java.util.Random;
 
-public class Conta implements Comparable<Conta>{
+public class Conta implements Comparable<Conta> {
+    
     private final String login;
     private String nome;
     private String senha;
@@ -79,4 +80,6 @@ public class Conta implements Comparable<Conta>{
                 ", codigoRecuperacao: " + codigoRecuperacao +
                 '}';
     }
+
+
 }

@@ -26,7 +26,7 @@ public class Main {
                     System.out.println("Criar conta como convidado?");
                     System.out.println("S/N");
                     op2 = input.next().toLowerCase(Locale.ROOT).charAt(0);
-                    while(!isAlphabetic(op2) && op2 != 's' && op2 != 'n'){
+                    while(op2 != 's' && op2 != 'n'){
                         System.out.println("Opção inválida!");
                         System.out.println("Criar conta como convidado?");
                         System.out.println("S/N");
@@ -46,14 +46,17 @@ public class Main {
                     break;
                 case '2':
                     System.out.println("O login será aqui!");
+                    break;
                 case '3':
                     System.out.println("Exibindo contas...");
-
                     contas.exibirContas();
+                    break;
+                case '4':
+
                 default:
                     break;
             }
-        } while (op != '5');
+        } while (op != '0');
     }
     public static void menu() {
         System.out.println("1 - Criar conta");
@@ -93,5 +96,17 @@ public class Main {
             c = new Conta(login, nome, senha);
         }
         return c;
+    }
+
+    public void recuperarSenha(){
+        Scanner input  = new Scanner(System.in);
+        String login;
+        int codigo;
+        System.out.println("/Interface de recuperação de conta/");
+        System.out.println("Digite o login: ");
+        login = input.nextLine();
+        System.out.println("Digite o login: ");
+        codigo = input.nextInt();
+
     }
 }
