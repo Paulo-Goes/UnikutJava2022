@@ -53,7 +53,7 @@ public class Main {
                 default:
                     break;
             }
-        } while (op != 5);
+        } while (op != '5');
     }
     public static void menu() {
         System.out.println("1 - Criar conta");
