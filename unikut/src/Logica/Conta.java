@@ -27,6 +27,10 @@ public class Conta implements Comparable<Conta> {
         this.codigoRecuperacao = criaCodigo();
     }
 
+    public void recuperarSenha(String login, int cod){
+
+    }
+
     private int criaCodigo() {
         Random r = new Random();
         int codigo = r.nextInt();

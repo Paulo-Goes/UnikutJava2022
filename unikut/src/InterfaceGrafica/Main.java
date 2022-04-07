@@ -52,6 +52,7 @@ public class Main {
                     contas.exibirContas();
                     break;
                 case '4':
+                    recuperarSenha();
                     break;
                 default:
                     break;
@@ -98,7 +99,7 @@ public class Main {
         return c;
     }
 
-    public void recuperarSenha(){
+    public static void recuperarSenha(){
         Scanner input  = new Scanner(System.in);
         String login;
         int codigo;
@@ -107,6 +108,6 @@ public class Main {
         login = input.nextLine();
         System.out.println("Digite o login: ");
         codigo = input.nextInt();
-
+        Conta conta =
     }
 }
