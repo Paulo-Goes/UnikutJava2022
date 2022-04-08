@@ -15,6 +15,8 @@ public class Main {
         char op,op2;
         Conta c;
 
+        System.out.println("Starting...");
+
         do {
             menu();
             op = input.next().charAt(0);
