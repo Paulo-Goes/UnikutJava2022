@@ -19,8 +19,7 @@ public class Main {
 
             switch (menuInput) {
                 case '1':
-                    // Interface de criação de conta
-                    System.out.println("/Interface de criação de conta/");
+                    // Interface de criação de conta na classe SignUp
                     SignUp.main(contas);
                     break;
                 case '2':
@@ -39,9 +38,11 @@ public class Main {
             }
         } while (menuInput != '0');
 
+        // Finaliza scanner input
         input.close();
     }
 
+    // Meotodo que exibe as opções do menu
     static void menuUI() {
         System.out.println("| UNIKUT SOCIAL MEDIA © | ");
         System.out.println("1 - Criar conta");
