@@ -39,12 +39,13 @@ public class Contas {
         return -1;
     }
 
-    public void newAccount(Conta c){
+    public void newAccount(String nome, String login, String senha){
+
+        Conta c;
+        c = new Conta(nome, login, senha);
 
         if(isEmpty()){
-
             contas.add(c);
-
         }else{
             if(verifyLogin(c)){
                 System.out.println("Login em uso");

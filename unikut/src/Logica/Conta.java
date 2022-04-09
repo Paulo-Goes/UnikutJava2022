@@ -14,13 +14,7 @@ public class Conta implements Comparable<Conta> {
         return c.getLogin().compareTo(this.login);
     }
 
-    public Conta(String login, String senha){
-        this.login = login;
-        this.nome = "convidado";
-        this.senha = senha;
-        this.codigoRecuperacao = criaCodigo();
-    }
-    public Conta(String login, String nome, String senha){
+       public Conta(String nome, String login, String senha){
         this.login = login;
         this.nome = nome;
         this.senha = senha;
