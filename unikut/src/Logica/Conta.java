@@ -3,25 +3,29 @@ package Logica;
 import java.util.Random;
 
 public class Conta implements Comparable<Conta> {
-    
+
     private final String login;
     private String nome;
     private String senha;
     private int codigoRecuperacao;
 
-    @Override
-    public int compareTo(Conta c){
-        return c.getLogin().compareTo(this.login);
+    public Conta(String login) {
+        this.login = login;
     }
 
-       public Conta(String nome, String login, String senha){
+    public Conta(String nome, String login, String senha) {
         this.login = login;
         this.nome = nome;
         this.senha = senha;
         this.codigoRecuperacao = criaCodigo();
     }
 
-    public void recuperarSenha(String login, int codigo){
+    @Override
+    public int compareTo(Conta c) {
+        return c.getLogin().compareTo(this.login);
+    }
+
+    public void recuperarSenha(String login, int codigo) {
     }
 
     private int criaCodigo() {
@@ -61,7 +65,7 @@ public class Conta implements Comparable<Conta> {
         this.codigoRecuperacao = criaCodigo();
     }
 
-    public boolean equals(Conta c){
+    public boolean equals(Conta c) {
         return this.login.equals(c.getLogin());
     }
 
