@@ -1,33 +1,34 @@
 package Logica;
+
 import java.util.ArrayList;
 
 public class Contas {
     private ArrayList<Conta> contas = new ArrayList<>();
 
-
-    private boolean isEmpty(){
-        return this.contas.size() == 0;
+    public int getSize() {
+        return contas.size();
     }
 
-    private boolean verifyLogin(Conta c){
+    public boolean checkLoginDisponibility(String login) {
+        Conta testingAccount = new Conta(login);
 
         for (Conta conta : contas) {
-            if (conta.equals(c)) {
+            if (conta.equals(testingAccount)) {
                 return true;
             }
         }
         return false;
     }
 
-    public Conta login(String login){
+    public Conta login(String login) {
         int s = search(login);
-        if(s == -1){
+        if (s == -1) {
             return null;
         }
         return contas.get(s);
     }
 
-    public int search(String login){
+    public int search(String login) {
         System.out.println("Procurando conta...");
         for (int i = 0; i < contas.size(); i++) {
             Conta conta = contas.get(i);
@@ -39,30 +40,16 @@ public class Contas {
         return -1;
     }
 
-    public void newAccount(String nome, String login, String senha){
+    public void newAccount(String nome, String login, String senha) {
+        Conta newACC = new Conta(nome, login, senha);
 
-        Conta c;
-        c = new Conta(nome, login, senha);
-
-        if(isEmpty()){
-            contas.add(c);
-        }else{
-            if(verifyLogin(c)){
-                System.out.println("Login em uso");
-            }else{
-                contas.add(c);
-            }
-
-        }
+        contas.add(newACC);
 
     }
 
-    public void exibirContas(){
+    public void exibirContas() {
         for (Conta conta : contas) {
             System.out.println(conta);
         }
-    }
-    public int getSize(){
-        return contas.size();
     }
 }
