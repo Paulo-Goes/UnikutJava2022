@@ -21,7 +21,7 @@ public class Main {
                 case '1':
                     // Interface de criação de conta
                     System.out.println("/Interface de criação de conta/");
-                    Register.criarContaUI(contas);
+                    SignUp.main(contas);
                     break;
                 case '2':
                     // Aqui será a interface de login
