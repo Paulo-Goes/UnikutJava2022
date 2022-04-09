@@ -13,11 +13,11 @@ public class Contas {
         Conta testingAccount = new Conta(login);
 
         for (Conta conta : contas) {
-            if (conta.equals(testingAccount)) {
-                return true;
+            if (conta.compareTo(testingAccount) == 0) {
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     public Conta login(String login) {
@@ -41,8 +41,8 @@ public class Contas {
     }
 
     public void newAccount(String nome, String login, String senha) {
-        Conta newACC = new Conta(nome, login, senha);
 
+        Conta newACC = new Conta(nome, login, senha);
         contas.add(newACC);
 
     }
