@@ -3,7 +3,7 @@ package InterfaceGrafica;
 import java.util.Scanner;
 import Logica.Contas;
 
-public class Register {
+public class SignUp {
     public static void criarContaUI(Contas contas) {
 
         Scanner input = new Scanner(System.in);
