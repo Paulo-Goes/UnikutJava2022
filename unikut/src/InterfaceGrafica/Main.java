@@ -34,7 +34,7 @@ public class Main {
                     break;
                 case '4':
                     // Exibe todos os usuarios cadastrados até o momento
-                    System.out.println("Exibindo contas...");
+                    System.out.println("/Lista de usuarios cadastrados/");
                     contas.exibirContas();
                     break;
                 default:
@@ -43,6 +43,8 @@ public class Main {
                     break;
             }
         } while (menuInput != '0');
+
+        input.close();
     }
 
     static void menuUI() {
@@ -58,10 +60,14 @@ public class Main {
         String nome, login, senha;
         char nameOptionInput;
 
-        System.out.println("Insira o Login");
+        System.out.println("Insira um Login");
         login = input.nextLine();
+        while (contas.checkLoginDisponibility(login)) {
+            System.out.println("O login informado já está em uso, informe outro login");
+            login = input.nextLine();
+        }
 
-        System.out.println("Insira a Senha");
+        System.out.println("Insira uma Senha ");
         senha = input.nextLine();
 
         System.out.println("Deseja inserir o nome? \n S/N");
