@@ -1,7 +1,10 @@
 package InterfaceGrafica;
 
+import java.util.Locale;
 import java.util.Scanner;
 import Logica.Contas;
+
+import static java.lang.Character.*;
 
 public class SignUp {
     public static void main(Contas contas) {
@@ -30,15 +33,14 @@ public class SignUp {
 
         // Pergunta se o usuario deseja adicionar um nome
         System.out.println("Deseja inserir o nome? \n S/N");
-        nameOptionInput = input.next().charAt(0);
+        nameOptionInput = input.next().toLowerCase(Locale.ROOT).charAt(0);
         input.nextLine();
-        nameOptionInput = Character.toLowerCase(nameOptionInput);
 
         // Força o usuario a inserir apenas S ou N em nameOptionInput
         while (nameOptionInput != 's' && nameOptionInput != 'n') {
             System.out.println("Oops, o caracter inserido deve ser [S] ou [N] (not case sensetive)");
-            nameOptionInput = input.next().charAt(0);
-            Character.toLowerCase(nameOptionInput);
+            nameOptionInput = input.next().toLowerCase(Locale.ROOT).charAt(0);
+            input.nextLine();
         }
 
         // Logica para vincular um nome a conta ou definir nome como "convidado"
