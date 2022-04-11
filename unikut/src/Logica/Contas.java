@@ -20,24 +20,23 @@ public class Contas {
         return true;
     }
 
-    public Conta login(String login) {
-        int s = search(login);
-        if (s == -1) {
-            return null;
+    public Conta login(String login, String senha) {
+        Conta s = search(login);
+        if (s.getSenha().equals(senha)) {
+            return s;
         }
-        return contas.get(s);
-    }
+        return null;
+    };
 
-    public int search(String login) {
-        System.out.println("Procurando conta...");
+    public Conta search(String login) {
+
         for (int i = 0; i < contas.size(); i++) {
             Conta conta = contas.get(i);
             if (conta.getLogin().equals(login)) {
-                return i;
+                return conta;
             }
         }
-        System.out.println("Conta não encontrada!");
-        return -1;
+        return null;
     }
 
     public void newAccount(String nome, String login, String senha) {
@@ -52,4 +51,5 @@ public class Contas {
             System.out.println(conta);
         }
     }
+
 }
