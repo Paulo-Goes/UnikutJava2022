@@ -20,6 +20,9 @@ public class Logado {
 
             if (menuInput == '2') {
                 if (contas.checkLoginDisponibility(String login) == false) {
+                    //Lógica adicionar amigos
+                }
+                else {
 
                 }
             }
