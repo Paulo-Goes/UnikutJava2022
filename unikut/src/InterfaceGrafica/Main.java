@@ -24,7 +24,8 @@ public class Main {
                     break;
                 case '2':
                     // Aqui será a interface de login
-                    System.out.println("Indisponivel");
+                    System.out.println("Insira o login: ");
+
                     break;
                 case 'e':
                     // Exibe todos os usuarios cadastrados até o momento (APENAS PARA TESTES)
@@ -48,6 +49,42 @@ public class Main {
         System.out.println("1 - Criar conta");
         System.out.println("2 - Login");
         System.out.println("0 - Sair");
+    }
+
+    static void loginUI(Contas contas){
+        String loginInput, senhaInput;
+        Scanner in = new Scanner(System.in);
+        do{
+        System.out.println("Insira o login: ");
+        loginInput = in.next();
+        in.nextLine();
+        
+        }while(contas.checkLoginDisponibility(loginInput));
+        
+        System.out.println("Insira a senha: ");
+        senhaInput = in.next();
+        in.nextLine();
+
+        Logado.main(contas.login(loginInput, senhaInput));
+        
+
+        
+
+        
+
+        if(c != null){
+            
+            System.out.println("Insira a senha: ");
+            senhaInput = in.next();
+            in.nextLine();
+
+           
+        }else{
+            System.out.println("Login invalido!");
+        }
+
+
+        
     }
 
 }
