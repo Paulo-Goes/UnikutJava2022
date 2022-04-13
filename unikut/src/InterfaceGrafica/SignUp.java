@@ -4,7 +4,6 @@ import java.util.Locale;
 import java.util.Scanner;
 import Logica.Contas;
 
-import static java.lang.Character.*;
 
 public class SignUp {
     public static void main(Contas contas) {
@@ -21,7 +20,7 @@ public class SignUp {
         input.nextLine();
 
         // Força o usuario a inserir um login disponivel do sistema
-        while (!contas.checkLoginDisponibility(login)) {
+        while (contas.search(login) != null) {
             System.out.println("O login informado já está em uso, informe outro login");
             login = input.next();
         }
@@ -50,6 +49,8 @@ public class SignUp {
         } else {
             nome = "convidado";
         }
+
+        input.close();
 
         // Metodo para criar a conta
         contas.newAccount(nome, login, senha);
