@@ -23,6 +23,7 @@ public class Main {
                     SignUp.main(contas);
                     break;
                 case '2':
+                    // Logica de login no meotodo loginUI
                     loginUI(contas);
                     break;
                 case 'e':
@@ -32,17 +33,20 @@ public class Main {
                     break;
                 default:
                     // Exibição caso a opção não esteja no menu
-                    System.out.println("Ocorreu um erro: Opção invalida");
+                    System.out.println("Oops, não temos essa opção :/");
                     break;
             }
         } while (menuInput != '0');
 
         // Finaliza scanner input
-        input.close();
+        
     }
 
     // Meotodo que exibe as opções do menu
     static void menuUI() {
+        System.out.println("< > unikut.com");
+        System.out.println();
+        System.out.println();
         System.out.println("| UNIKUT SOCIAL MEDIA © | ");
         System.out.println("1 - Criar conta");
         System.out.println("2 - Login");
@@ -61,7 +65,7 @@ public class Main {
             in.nextLine();
         } while (contas.login(loginInput, senhaInput) == null);
 
-        in.close();
+        
 
        Logado.main(contas.login(loginInput, senhaInput));
 
