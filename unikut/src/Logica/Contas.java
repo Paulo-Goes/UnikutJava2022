@@ -5,33 +5,22 @@ import java.util.ArrayList;
 public class Contas {
     private ArrayList<Conta> contas = new ArrayList<>();
 
-    public int getSize() {
-        return contas.size();
-    }
-
-    public boolean checkLoginDisponibility(String login) {
-        Conta testingAccount = new Conta(login);
-
-        for (Conta conta : contas) {
-            if (conta.compareTo(testingAccount) == 0) {
-                return false;
+       public Conta login(String login, String senha) {
+        Conta acc = search(login);
+        if(acc == null){
+            return null;
+        }else{
+            if (acc.getSenha().equals(senha)) {
+                return acc;
             }
         }
-        return true;
+        
+        return null;
     }
 
-    public Conta login(String login, String senha) {
-        Conta s = search(login);
-        if (s.getSenha().equals(senha)) {
-            return s;
-        }
-        return null;
-    };
-
     public Conta search(String login) {
-
-        for (int i = 0; i < contas.size(); i++) {
-            Conta conta = contas.get(i);
+        
+        for (Conta conta : contas) {
             if (conta.getLogin().equals(login)) {
                 return conta;
             }
