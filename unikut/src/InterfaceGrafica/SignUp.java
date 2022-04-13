@@ -50,7 +50,7 @@ public class SignUp {
             nome = "convidado";
         }
 
-        input.close();
+        
 
         // Metodo para criar a conta
         contas.newAccount(nome, login, senha);
