@@ -23,9 +23,7 @@ public class Main {
                     SignUp.main(contas);
                     break;
                 case '2':
-                    // Aqui será a interface de login
-                    System.out.println("Insira o login: ");
-
+                    loginUI(contas);
                     break;
                 case 'e':
                     // Exibe todos os usuarios cadastrados até o momento (APENAS PARA TESTES)
@@ -58,14 +56,14 @@ public class Main {
             System.out.println("Insira o login: ");
             loginInput = in.next();
             in.nextLine();
+            System.out.println("Insira a senha: ");
+            senhaInput = in.next();
+            in.nextLine();
+        } while (contas.login(loginInput, senhaInput) == null);
 
-        } while (contas.checkLoginDisponibility(loginInput));
+        in.close();
 
-        System.out.println("Insira a senha: ");
-        senhaInput = in.next();
-        in.nextLine();
-
-        Logado.main(contas.login(loginInput, senhaInput));
+       Logado.main(contas.login(loginInput, senhaInput));
 
     }
 
