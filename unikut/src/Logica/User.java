@@ -8,7 +8,15 @@ public class User implements Comparable<User> {
     private String nome;
     private String senha;
     protected LinkedList<User> friends = new LinkedList<>();
-    
+    protected LinkedList<User> friendRequests = new LinkedList<>();
+
+    public LinkedList<User> getFriends() {
+        return friends;
+    }
+
+    public LinkedList<User> getFriendRequests() {
+        return friendRequests;
+    }
 
     public User(String nome, String login, String senha) {
         this.login = login;
@@ -21,17 +29,11 @@ public class User implements Comparable<User> {
         return c.getLogin().compareTo(this.login);
     }
 
-    
-
-    public LinkedList<User> getFriends() {
-        return friends;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public void setSenha(String senha) {
+    protected void setSenha(String senha) {
         this.senha = senha;
     }
 

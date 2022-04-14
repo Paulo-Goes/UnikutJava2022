@@ -4,7 +4,7 @@ import java.util.Scanner;
 import Logica.*;
 
 public class Home {
-    public static void main(User loggedAccount, SocialNetwork unikut) {
+    public static void main(User loggedAccount) {
 
         Scanner input = new Scanner(System.in);
         char menuInput;
@@ -23,9 +23,19 @@ public class Home {
                     ProfileSettings.main(loggedAccount);
                     break;
                 case '2':
+                Addons.delay(1);
+                addFriendsUI(Main.unikut, loggedAccount);
                     break;
+                case '3':
+                Main.unikut.showFrieds(loggedAccount);
+                Addons.delay(2);
+                    break;
+                case '4':
+                Main.unikut.showFriendsRequests(loggedAccount);
+                Addons.delay(2);
+                break;
                 default:
-                    System.out.println("Oops, essa oção ainda não existe");
+                    System.out.println("Oops, essa opção ainda não existe");
                     Addons.delay(2);
                     break;
             }
@@ -38,11 +48,13 @@ public class Home {
         System.out.println("Home");
         System.out.println("1 - Edição de perfil");
         System.out.println("2 - Adicionar amigos");
-        System.out.println("3 - Depoimentos");
+        System.out.println("3 - Ver lista de amigos");
+        System.out.println("4 - Ver Notificações");
+        System.out.println("5 - Depoimentos");
         System.out.println("0 - Sair");
     }
 
-    static void addFriendsUI(SocialNetwork contas){
+    static void addFriendsUI(SocialNetwork unikut, User loggedAccount) {
         Scanner in = new Scanner(System.in);
         String friendLogin;
         User friend;
@@ -51,22 +63,10 @@ public class Home {
         friendLogin = in.next();
         in.nextLine();
 
-        friend = contas.search(friendLogin);
-
-        if(friend == null){
-            System.out.println("Usuario não encontrado\n");
-        }else{
-            int op;
-            System.out.println("Correspondente encontrado\nDeseja enviar soliciação de amizade para "+friend.getNome()+" ?");
-            System.out.println("1 - Enviar solicitação\n2- Voltar");
-            op = in.nextInt();
-            if(op == 1){
-
-            }else{
-                System.out.println("Retornando a Home");
-            }
-        }
-
+        unikut.sendFriendRequest(loggedAccount, friendLogin);
+        Addons.delay(2);
+        System.out.println("\nRetornando a Home");
+        Addons.delay(1);
 
     }
 }

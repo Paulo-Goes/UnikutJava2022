@@ -3,6 +3,8 @@ package InterfaceGrafica;
 import java.util.Scanner;
 import Logica.*;
 
+
+
 public class ProfileSettings {
 
     public static void main(User editingAccount) {
@@ -104,7 +106,7 @@ public class ProfileSettings {
         op = in.nextInt();
 
         if (op == 1) {
-            loggedAccount.setSenha(newPassword); // Metodo que muda a senha na classe contas
+            Main.unikut.changePassword(loggedAccount, newPassword); // Metodo que muda a senha na classe contas
             System.out.println("Senha alterada com sucesso :)");
 
         } else {
