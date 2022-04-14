@@ -54,7 +54,7 @@ public class SignUp {
         }
 
         System.out.println("Conta criada com sucesso! use suas credenciais para fazer login na proxima vez :)");
-        Addons.delay(500);
+        Addons.delay(2);
 
         // Metodo para criar a conta
         contas.newAccount(nome, login, senha);
