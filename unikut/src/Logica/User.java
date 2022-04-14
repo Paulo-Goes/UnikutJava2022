@@ -1,24 +1,30 @@
 package Logica;
 
-public class Conta implements Comparable<Conta> {
+import java.util.LinkedList;
+
+public class User implements Comparable<User> {
 
     private final String login;
     private String nome;
     private String senha;
+    protected LinkedList<User> friends = new LinkedList<>();
+    
 
-    public Conta(String login) {
-        this.login = login;
-    }
-
-    public Conta(String nome, String login, String senha) {
+    public User(String nome, String login, String senha) {
         this.login = login;
         this.nome = nome;
         this.senha = senha;
     }
 
     @Override
-    public int compareTo(Conta c) {
+    public int compareTo(User c) {
         return c.getLogin().compareTo(this.login);
+    }
+
+    
+
+    public LinkedList<User> getFriends() {
+        return friends;
     }
 
     public void setNome(String nome) {
@@ -37,7 +43,7 @@ public class Conta implements Comparable<Conta> {
         return nome;
     }
 
-    public String getSenha() {
+    protected String getSenha() {
         return senha;
     }
 

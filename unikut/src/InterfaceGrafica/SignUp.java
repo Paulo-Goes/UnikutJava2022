@@ -7,7 +7,7 @@ import Logica.*;
 public class SignUp {
 
     // Interface de criação de conta
-    public static void main(Contas contas) {
+    public static void main(SocialNetwork unikut) {
 
         Scanner input = new Scanner(System.in);
         String nome, login, senha;
@@ -21,7 +21,7 @@ public class SignUp {
         input.nextLine();
 
         // Força o usuario a inserir um login que não foi utilizado
-        while (contas.search(login) != null) {
+        while (unikut.search(login) != null) {
             System.out.println("O login informado já está sendo usado :/");
             Addons.delay(350);
             System.out.println("Insira um login: ");
@@ -59,7 +59,7 @@ public class SignUp {
         Addons.delay(2);
 
         // Metodo para criar a conta
-        contas.newAccount(nome, login, senha);
+        unikut.createAccount(nome, login, senha);
     }
 
 }

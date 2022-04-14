@@ -5,7 +5,7 @@ import Logica.*;
 
 public class ProfileSettings {
 
-    public static void main(Conta editingAccount) {
+    public static void main(User editingAccount) {
         Scanner in = new Scanner(System.in);
         char op;
 
@@ -40,7 +40,7 @@ public class ProfileSettings {
     }
 
     // Menu de opções de edição
-    static void optionsUI(Conta loggedAccount) {
+    static void optionsUI(User loggedAccount) {
         System.out.println("\n< > unikut.com/" + loggedAccount.getLogin() + "/edit");
         System.out.println();
         System.out.println("Edição de perfil");
@@ -51,7 +51,7 @@ public class ProfileSettings {
     }
 
     // Interface de mudança de nome no unikut
-    static void changeNameUI(Conta loggedAccount) {
+    static void changeNameUI(User loggedAccount) {
         Scanner in = new Scanner(System.in);
         String newName;
         int op;
@@ -80,7 +80,7 @@ public class ProfileSettings {
     }
 
     // Interface de mudança de senha
-    static void changePasswordUI(Conta loggedAccount) {
+    static void changePasswordUI(User loggedAccount) {
         Scanner in = new Scanner(System.in);
         String newPassword, newPasswordCheckout;
         int op;

@@ -4,11 +4,11 @@ import Logica.*;
 
 import java.util.Scanner;
 
-public class Main {
+public class MainPage {
 
     public static void main(String[] args) {
+        SocialNetwork unikut = new SocialNetwork();
         Scanner input = new Scanner(System.in);
-        Contas contas = new Contas();
         char menuInput;
 
         // Intarface de opções
@@ -22,17 +22,17 @@ public class Main {
                 case '1':
                     // Interface de criação de conta na classe SignUp
                     Addons.delay(1);
-                    SignUp.main(contas);
+                    SignUp.main(unikut);
                     break;
                 case '2':
                     // Logica de login no meotodo loginUI
                     Addons.delay(1);
-                    loginUI(contas);
+                    loginUI(unikut);
                     break;
                 case 'e':
                     // Exibe todos os usuarios cadastrados até o momento (APENAS PARA TESTES)
                     System.out.println("/Lista de usuarios cadastrados/");
-                    contas.exibirContas();
+                    unikut.showAccounts();
                     break;
                 default:
                     // Exibição caso a opção não esteja no menu
@@ -57,7 +57,7 @@ public class Main {
     }
 
     // Interface de login
-    static void loginUI(Contas contas) {
+    static void loginUI(SocialNetwork contas) {
         String loginInput, senhaInput;
         Scanner in = new Scanner(System.in);
         System.out.println("Conecte-se usando suas credenciais");
@@ -72,7 +72,7 @@ public class Main {
 
         System.out.println("Login efetuado com sucesso!");
         Addons.delay(1);
-        Logado.main(contas.login(loginInput, senhaInput)); // vai para a interface de login
+        Home.main(contas.login(loginInput, senhaInput), contas); // vai para a interface de login
     }
 
 }
