@@ -2,8 +2,7 @@ package InterfaceGrafica;
 
 import java.util.Locale;
 import java.util.Scanner;
-import Logica.Contas;
-
+import Logica.*;
 
 public class SignUp {
     public static void main(Contas contas) {
@@ -12,7 +11,7 @@ public class SignUp {
         String nome, login, senha;
         char nameOptionInput;
 
-        System.out.println("/Interface de criação de conta/");
+        System.out.println("\nCriação de conta");
 
         // Solicita um login ao usuario
         System.out.println("Insira um Login");
@@ -21,7 +20,9 @@ public class SignUp {
 
         // Força o usuario a inserir um login disponivel do sistema
         while (contas.search(login) != null) {
-            System.out.println("O login informado já está em uso, informe outro login");
+            System.out.println("O login informado já está sendo usado :/");
+            Addons.delay(350);
+            System.out.println("Insira um login: ");
             login = input.next();
         }
 
@@ -38,6 +39,8 @@ public class SignUp {
         // Força o usuario a inserir apenas S ou N em nameOptionInput
         while (nameOptionInput != 's' && nameOptionInput != 'n') {
             System.out.println("Oops, o caracter inserido deve ser [S] ou [N] (not case sensetive)");
+            Addons.delay(350);
+            System.out.println("Deseja inserir o nome \n S/N");
             nameOptionInput = input.next().toLowerCase(Locale.ROOT).charAt(0);
             input.nextLine();
         }
@@ -50,7 +53,8 @@ public class SignUp {
             nome = "convidado";
         }
 
-        
+        System.out.println("Conta criada com sucesso! use suas credenciais para fazer login na proxima vez :)");
+        Addons.delay(500);
 
         // Metodo para criar a conta
         contas.newAccount(nome, login, senha);
