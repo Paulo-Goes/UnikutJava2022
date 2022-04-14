@@ -13,7 +13,7 @@ public class Main {
 
         // Intarface de opções
         do {
-            //Exibe opções iniciais
+            // Exibe opções iniciais
             menuUI();
             menuInput = input.next().charAt(0);
             input.nextLine();
@@ -44,9 +44,6 @@ public class Main {
 
         System.out.println("Foi bom enquanto durou :/");
         Addons.delay(2);
-
-        // Finaliza scanner input
-
     }
 
     // Meotodo que exibe as opções do menu
@@ -71,12 +68,11 @@ public class Main {
             System.out.println("Insira a senha: ");
             senhaInput = in.next();
             in.nextLine();
-        } while (contas.login(loginInput, senhaInput) == null);
+        } while (contas.login(loginInput, senhaInput) == null); // função que retorna uma conta se as credencias corresponderem a uma conta cadastrada
 
         System.out.println("Login efetuado com sucesso!");
         Addons.delay(1);
-        Logado.main(contas.login(loginInput, senhaInput));
-
+        Logado.main(contas.login(loginInput, senhaInput)); // vai para a interface de login
     }
 
 }

@@ -9,7 +9,6 @@ public class Logado {
         Scanner input = new Scanner(System.in);
         char menuInput;
 
-        
         // Intarface de opções
         do {
             // Exibe opções para usuarios logados
@@ -18,7 +17,7 @@ public class Logado {
             input.nextLine();
 
             switch (menuInput) {
-                //Edição de perifl
+                // Edição de perifl
                 case '1':
                     Addons.delay(2);
                     ProfileSettings.main(loggedAccount);
@@ -33,8 +32,7 @@ public class Logado {
     }
 
     static void menuUI() {
-        System.out.println("\n< > unikut.com/Home/");
-        System.out.println();
+        System.out.println("\n< > unikut.com/Home/\n");
         System.out.println("Home");
         System.out.println("1 - Edição de perfil");
         System.out.println("2 - Adicionar amigos");
