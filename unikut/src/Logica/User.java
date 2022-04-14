@@ -1,5 +1,6 @@
 package Logica;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 
 public class User implements Comparable<User> {
@@ -9,6 +10,11 @@ public class User implements Comparable<User> {
     private String senha;
     protected LinkedList<User> friends = new LinkedList<>();
     protected LinkedList<User> friendRequests = new LinkedList<>();
+    protected HashMap<User, LinkedList<String>> messages = new HashMap<>();
+
+    public HashMap<User, LinkedList<String>> getMessages() {
+        return this.messages;
+    }
 
     public LinkedList<User> getFriends() {
         return friends;

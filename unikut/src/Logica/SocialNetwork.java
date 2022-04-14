@@ -1,10 +1,63 @@
 package Logica;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
 
 public class SocialNetwork {
-    private ArrayList<User> accounts = new ArrayList<>();
+    private LinkedList<User> accounts = new LinkedList<>();
 
+
+
+    //Exibir menssagens de um usuario
+    public void printMessages(LinkedList<String> texts) {
+        if(texts == null){
+            System.out.println("Não há novas messagens deste usuario");
+        }else{
+            for(String s : texts){
+                System.out.println(s);
+            }
+        }
+    }
+
+    // Metodo para exibir menssagens
+    public void showMessages(User user){
+        HashMap<User, LinkedList<String>> userMessages = user.getMessages();
+
+        if(userMessages == null){
+            System.out.println("Não hà novos depoimentos para você");
+        }else{
+            for(User key :  userMessages.keySet()){
+                System.out.println("Menssagems de: "+key.getLogin()+"\n");
+                printMessages(userMessages.get(key));
+            } 
+        }
+    }
+
+    // Metodo para enviar depoimentos
+    public void sendMessage(String message, User whosends, String loginFromReceptor){
+        User receptor = search(loginFromReceptor);
+
+        if(receptor == null){
+            System.out.println("Destinatário não existe");
+        }else{
+            HashMap<User, LinkedList<String>> map = receptor.getMessages();
+            LinkedList<String> receptorMessages;
+
+            if(!map.containsKey(whosends)){
+                map.put(whosends, new LinkedList<String>());
+                receptorMessages = receptor.getMessages().get(whosends);
+                receptorMessages.addLast(message);
+            }else{
+                receptorMessages = receptor.getMessages().get(whosends);
+                receptorMessages.addLast(message);
+            } 
+        }
+        
+    }
+
+    
+
+    // Metodo para alterar senha
     public void changePassword(User user, String password) {
         user.setSenha(password);
     }

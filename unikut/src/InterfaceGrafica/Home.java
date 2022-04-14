@@ -5,6 +5,7 @@ import Logica.*;
 
 public class Home {
     public static void main(User loggedAccount) {
+        SocialNetwork unikut = Main.unikut;
 
         Scanner input = new Scanner(System.in);
         char menuInput;
@@ -23,17 +24,23 @@ public class Home {
                     ProfileSettings.main(loggedAccount);
                     break;
                 case '2':
-                Addons.delay(1);
-                addFriendsUI(Main.unikut, loggedAccount);
+                    Addons.delay(1);
+                    addFriendsUI(Main.unikut, loggedAccount);
                     break;
                 case '3':
-                Main.unikut.showFrieds(loggedAccount);
-                Addons.delay(2);
+                    Main.unikut.showFrieds(loggedAccount);
+                    Addons.delay(2);
                     break;
                 case '4':
-                Main.unikut.showFriendsRequests(loggedAccount);
-                Addons.delay(2);
-                break;
+                    Main.unikut.showFriendsRequests(loggedAccount);
+                    Addons.delay(2);
+                    break;
+                case '5':
+                    sendMessageUI(Main.unikut, loggedAccount);
+                    break;
+                case '6':
+                    unikut.showMessages(loggedAccount);
+                    break;
                 default:
                     System.out.println("Oops, essa opção ainda não existe");
                     Addons.delay(2);
@@ -50,7 +57,8 @@ public class Home {
         System.out.println("2 - Adicionar amigos");
         System.out.println("3 - Ver lista de amigos");
         System.out.println("4 - Ver Notificações");
-        System.out.println("5 - Depoimentos");
+        System.out.println("5 - Enviar Depoimento");
+        System.out.println("6 - Veriificar caixa de depoimentos");
         System.out.println("0 - Sair");
     }
 
@@ -67,5 +75,19 @@ public class Home {
         System.out.println("\nRetornando a Home");
         Addons.delay(1);
 
+    }
+
+    static void sendMessageUI(SocialNetwork unikut, User loggedAccount) {
+        Scanner input = new Scanner(System.in);
+        String message, loginRecpetor;
+
+        System.out.println("Insira o login do destinatario");
+        loginRecpetor = input.next();
+        input.nextLine();
+
+        System.out.println("Digite a menssagem abaixo: ");
+        message = input.nextLine();
+
+        unikut.sendMessage(message, loggedAccount, loginRecpetor);
     }
 }
