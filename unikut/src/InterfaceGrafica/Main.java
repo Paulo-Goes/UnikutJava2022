@@ -1,6 +1,6 @@
 package InterfaceGrafica;
 
-import Logica.Contas;
+import Logica.*;
 
 import java.util.Scanner;
 
@@ -20,10 +20,12 @@ public class Main {
             switch (menuInput) {
                 case '1':
                     // Interface de criação de conta na classe SignUp
+                    Addons.delay(1);
                     SignUp.main(contas);
                     break;
                 case '2':
                     // Logica de login no meotodo loginUI
+                    Addons.delay(1);
                     loginUI(contas);
                     break;
                 case 'e':
@@ -34,18 +36,21 @@ public class Main {
                 default:
                     // Exibição caso a opção não esteja no menu
                     System.out.println("Oops, não temos essa opção :/");
+                    Addons.delay(1);
                     break;
             }
         } while (menuInput != '0');
 
+        System.out.println("Foi bom enquanto durou :/");
+        Addons.delay(2);
+
         // Finaliza scanner input
-        
+
     }
 
     // Meotodo que exibe as opções do menu
     static void menuUI() {
-        System.out.println("< > unikut.com");
-        System.out.println();
+        System.out.println("\n< > unikut.com");
         System.out.println();
         System.out.println("| UNIKUT SOCIAL MEDIA © | ");
         System.out.println("1 - Criar conta");
@@ -56,6 +61,7 @@ public class Main {
     static void loginUI(Contas contas) {
         String loginInput, senhaInput;
         Scanner in = new Scanner(System.in);
+        System.out.println("Conecte-se usando suas credenciais");
         do {
             System.out.println("Insira o login: ");
             loginInput = in.next();
@@ -65,9 +71,9 @@ public class Main {
             in.nextLine();
         } while (contas.login(loginInput, senhaInput) == null);
 
-        
-
-       Logado.main(contas.login(loginInput, senhaInput));
+        System.out.println("Login efetuado com sucesso!");
+        Addons.delay(1);
+        Logado.main(contas.login(loginInput, senhaInput));
 
     }
 
