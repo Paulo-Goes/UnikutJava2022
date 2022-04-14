@@ -20,7 +20,7 @@ public class Home {
             switch (menuInput) {
                 // Edição de perifl
                 case '1':
-                    Addons.delay(2);
+                    Addons.delay(1);
                     ProfileSettings.main(loggedAccount);
                     break;
                 case '2':
@@ -28,21 +28,23 @@ public class Home {
                     addFriendsUI(Main.unikut, loggedAccount);
                     break;
                 case '3':
-                    Main.unikut.showFrieds(loggedAccount);
+                    Addons.delay(1);
+                    sendMessageUI(Main.unikut, loggedAccount);
                     Addons.delay(2);
                     break;
                 case '4':
-                    Main.unikut.showFriendsRequests(loggedAccount);
+                Main.unikut.showFrieds(loggedAccount);
                     Addons.delay(2);
                     break;
                 case '5':
-                    sendMessageUI(Main.unikut, loggedAccount);
+                    Main.unikut.showFriendsRequests(loggedAccount);
+                    Addons.delay(2);
                     break;
                 case '6':
                     unikut.showMessages(loggedAccount);
+                    Addons.delay(2);
                     break;
                 default:
-                    System.out.println("Oops, essa opção ainda não existe");
                     Addons.delay(2);
                     break;
             }
@@ -55,10 +57,11 @@ public class Home {
         System.out.println("Home");
         System.out.println("1 - Edição de perfil");
         System.out.println("2 - Adicionar amigos");
-        System.out.println("3 - Ver lista de amigos");
-        System.out.println("4 - Ver Notificações");
-        System.out.println("5 - Enviar Depoimento");
+        System.out.println("3 - Enviar Depoimento");
+        System.out.println("4 - Ver lista de amigos");
+        System.out.println("5 - Verificar solicitações de amizade");
         System.out.println("6 - Veriificar caixa de depoimentos");
+        
         System.out.println("0 - Sair");
     }
 

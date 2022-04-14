@@ -2,7 +2,6 @@ package Logica;
 
 public class Addons {
 
-
     // Insere delay entre os processos
     public static void delay(int op) {
         int timeMS = 0;

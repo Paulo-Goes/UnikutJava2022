@@ -3,10 +3,12 @@ package InterfaceGrafica;
 import Logica.*;
 
 import java.util.Scanner;
+
 public class Main {
 
     public static SocialNetwork unikut = new SocialNetwork();
-        public static void main(String[] args) {
+
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         char menuInput;
 
@@ -67,7 +69,8 @@ public class Main {
             System.out.println("Insira a senha: ");
             senhaInput = in.next();
             in.nextLine();
-        } while (unikut.login(loginInput, senhaInput) == null); // função que retorna uma conta se as credencias corresponderem a uma conta cadastrada
+        } while (unikut.login(loginInput, senhaInput) == null); // função que retorna uma conta se as credencias
+                                                                // corresponderem a uma conta cadastrada
 
         System.out.println("Login efetuado com sucesso!");
         Addons.delay(1);

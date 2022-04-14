@@ -27,7 +27,7 @@ public class SocialNetwork {
             System.out.println("Não hà novos depoimentos para você");
         }else{
             for(User key :  userMessages.keySet()){
-                System.out.println("Menssagems de: "+key.getLogin()+"\n");
+                System.out.println("[Menssagems de: "+key.getLogin()+"]");
                 printMessages(userMessages.get(key));
             } 
         }
@@ -46,7 +46,7 @@ public class SocialNetwork {
             if(!map.containsKey(whosends)){
                 map.put(whosends, new LinkedList<String>());
                 receptorMessages = receptor.getMessages().get(whosends);
-                receptorMessages.addLast(message);
+                receptorMessages.addFirst(message);
             }else{
                 receptorMessages = receptor.getMessages().get(whosends);
                 receptorMessages.addLast(message);
@@ -75,6 +75,7 @@ public class SocialNetwork {
 
     // Metodo para exibir solicitações existentes
     public void showFriendsRequests(User user) {
+
         if(user.getFriendRequests().isEmpty()){
             System.out.println("Você não possui solicitações no momento");
         }else{
