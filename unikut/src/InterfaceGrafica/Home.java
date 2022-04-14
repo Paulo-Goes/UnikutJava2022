@@ -57,7 +57,6 @@ public class Home {
     static void addFriendsUI(SocialNetwork unikut, User loggedAccount) {
         Scanner in = new Scanner(System.in);
         String friendLogin;
-        User friend;
 
         System.out.println("Adicionar amigos\nInsira o login do usuario");
         friendLogin = in.next();
