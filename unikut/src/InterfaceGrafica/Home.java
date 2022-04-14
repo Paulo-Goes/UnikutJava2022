@@ -25,11 +25,11 @@ public class Home {
                     break;
                 case '2':
                     Addons.delay(1);
-                    addFriendsUI(Main.unikut, loggedAccount);
+                    addFriendsUI(unikut, loggedAccount);
                     break;
                 case '3':
                     Addons.delay(1);
-                    sendMessageUI(Main.unikut, loggedAccount);
+                    sendMessageUI(unikut, loggedAccount);
                     Addons.delay(2);
                     break;
                 case '4':
