@@ -5,6 +5,8 @@ import java.util.Scanner;
 import Logica.*;
 
 public class SignUp {
+
+    // Interface de criação de conta
     public static void main(Contas contas) {
 
         Scanner input = new Scanner(System.in);
@@ -18,7 +20,7 @@ public class SignUp {
         login = input.next();
         input.nextLine();
 
-        // Força o usuario a inserir um login disponivel do sistema
+        // Força o usuario a inserir um login que não foi utilizado
         while (contas.search(login) != null) {
             System.out.println("O login informado já está sendo usado :/");
             Addons.delay(350);

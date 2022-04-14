@@ -11,8 +11,9 @@ public class Main {
         Contas contas = new Contas();
         char menuInput;
 
-        // Menu de ações iniciais
+        // Intarface de opções
         do {
+            //Exibe opções iniciais
             menuUI();
             menuInput = input.next().charAt(0);
             input.nextLine();
@@ -58,6 +59,7 @@ public class Main {
         System.out.println("0 - Sair");
     }
 
+    // Interface de login
     static void loginUI(Contas contas) {
         String loginInput, senhaInput;
         Scanner in = new Scanner(System.in);

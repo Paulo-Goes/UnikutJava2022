@@ -7,16 +7,18 @@ public class Logado {
     public static void main(Conta loggedAccount) {
 
         Scanner input = new Scanner(System.in);
-
         char menuInput;
 
-        // Menu de ações iniciais
+        
+        // Intarface de opções
         do {
+            // Exibe opções para usuarios logados
             menuUI();
             menuInput = input.next().charAt(0);
             input.nextLine();
 
             switch (menuInput) {
+                //Edição de perifl
                 case '1':
                     Addons.delay(2);
                     ProfileSettings.main(loggedAccount);
@@ -27,7 +29,6 @@ public class Logado {
                     break;
             }
         } while (menuInput != '0');
-        // Finaliza scanner input
 
     }
 

@@ -9,8 +9,10 @@ public class ProfileSettings {
         Scanner in = new Scanner(System.in);
         char op;
 
+        // Intarface de opções
         do {
 
+            //Exibe opções de edição de perfil
             optionsUI(editingAccount);
 
             op = in.next().charAt(0);
@@ -18,10 +20,12 @@ public class ProfileSettings {
             Character.toLowerCase(op);
 
             switch (op) {
+                //Mudarnça de nome
                 case '1':
                     Addons.delay(1);
                     changeNameUI(editingAccount);
                     break;
+                //Mudança de senha
                 case '2':
                     Addons.delay(1);
                     changePasswordUI(editingAccount);
@@ -36,6 +40,7 @@ public class ProfileSettings {
 
     }
 
+    // Menu de opções de edição
     static void optionsUI(Conta loggedAccount) {
         System.out.println("\n< > unikut.com/" + loggedAccount.getLogin() + "/editProfile");
         System.out.println();
@@ -46,12 +51,13 @@ public class ProfileSettings {
 
     }
 
+    //Interface de mudança de nome no unikut
     static void changeNameUI(Conta loggedAccount) {
         Scanner in = new Scanner(System.in);
         String newName;
         int op;
 
-        System.out.println("Mudar nome de exibição \n Insira seu novo nome de exibição");
+        System.out.println("\nMudar nome de exibição \n Insira seu novo nome de exibição");
         newName = in.nextLine();
 
         System.out.println("Seu nome de exibição atual é: " + loggedAccount.getNome()+"\n\nSeu novo nome de exibição será: " + newName);
@@ -72,6 +78,7 @@ public class ProfileSettings {
 
     }
 
+    //Interface de mudança de senha
     static void changePasswordUI(Conta loggedAccount) {
         Scanner in = new Scanner(System.in);
         String newPassword, newPasswordCheckout;
