@@ -11,25 +11,22 @@ public class ProfileSettings {
 
         // Intarface de opções
         do {
-            // Exibe opções de edição de perfil
-            optionsUI(editingAccount);
+            optionsUI(editingAccount); // Exibe opções de edição de perfil
 
             op = in.next().charAt(0);
             in.nextLine();
             Character.toLowerCase(op);
 
             switch (op) {
-                // Mudarnça de nome
-                case '1':
+                case '1': // Mudarnça de nome
                     Addons.delay(1);
                     changeNameUI(editingAccount);
                     break;
-                // Mudança de senha
-                case '2':
+                case '2': // Mudança de senha
                     Addons.delay(1);
                     changePasswordUI(editingAccount);
                     break;
-                default:
+                default: // Reiniciar menu se a opção não estiver listada
                     System.out.println("Oops, essa opção ainda não existe :/");
                     Addons.delay(1);
                     break;
@@ -39,8 +36,7 @@ public class ProfileSettings {
 
     }
 
-    // Menu de opções de edição
-    static void optionsUI(User loggedAccount) {
+    static void optionsUI(User loggedAccount) { // Menu de opções de edição
         System.out.println("\n< > unikut.com/" + loggedAccount.getLogin() + "/edit");
         System.out.println();
         System.out.println("Edição de perfil");
@@ -50,8 +46,7 @@ public class ProfileSettings {
 
     }
 
-    // Interface de mudança de nome no unikut
-    static void changeNameUI(User loggedAccount) {
+    static void changeNameUI(User loggedAccount) { // Interface de mudança de nome no unikut
         Scanner in = new Scanner(System.in);
         String newName;
         int op;
@@ -65,8 +60,7 @@ public class ProfileSettings {
         System.out.println("1 - Confirmar mudança\n2 - Descatar mudança");
         op = in.nextInt();
 
-        // Condicionais para confirmar a alteração de nome
-        if (op == 1) {
+        if (op == 1) { // Condicionais para confirmar a alteração de nome
             loggedAccount.setNome(newName);
             System.out.println("Mudança efetuada, " + loggedAccount.getNome() + " :)");
             Addons.delay(1);
@@ -79,8 +73,7 @@ public class ProfileSettings {
 
     }
 
-    // Interface de mudança de senha
-    static void changePasswordUI(User loggedAccount) {
+    static void changePasswordUI(User loggedAccount) { // Interface de mudança de senha
         Scanner in = new Scanner(System.in);
         String newPassword, newPasswordCheckout;
         int op;

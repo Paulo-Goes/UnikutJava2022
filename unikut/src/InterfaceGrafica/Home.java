@@ -18,34 +18,32 @@ public class Home {
             input.nextLine();
 
             switch (menuInput) {
-                // Edição de perifl
-                case '1':
+                case '1': // Edição de perfil
                     Addons.delay(1);
                     ProfileSettings.main(loggedAccount);
                     break;
-                case '2':
+                case '2': // Adição de amigos
                     Addons.delay(1);
                     addFriendsUI(unikut, loggedAccount);
                     break;
-                case '3':
+                case '3': // Envio de recados
                     Addons.delay(1);
                     sendMessageUI(unikut, loggedAccount);
                     Addons.delay(2);
                     break;
-                case '4':
-                Main.unikut.showFrieds(loggedAccount);
+                case '4': // Exibir Amigos
+                    Main.unikut.showFrieds(loggedAccount);
                     Addons.delay(2);
                     break;
-                case '5':
+                case '5': // Exibir amigos Pendentes
                     Main.unikut.showFriendsRequests(loggedAccount);
                     Addons.delay(2);
                     break;
-                case '6':
+                case '6': // Exibir Menssagens
                     unikut.showMessages(loggedAccount);
                     Addons.delay(2);
                     break;
                 default:
-                    Addons.delay(2);
                     break;
             }
         } while (menuInput != '0');
@@ -61,7 +59,7 @@ public class Home {
         System.out.println("4 - Ver lista de amigos");
         System.out.println("5 - Verificar solicitações de amizade");
         System.out.println("6 - Veriificar caixa de depoimentos");
-        
+
         System.out.println("0 - Sair");
     }
 

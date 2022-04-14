@@ -20,25 +20,19 @@ public class Main {
             input.nextLine();
 
             switch (menuInput) {
-                case '1':
-                    // Interface de criação de conta na classe SignUp
+                case '1': // Interface de criação de conta na classe SignUp
                     Addons.delay(1);
                     SignUp.main(unikut);
                     break;
-                case '2':
-                    // Logica de login no meotodo loginUI
+                case '2': // Logica de login no meotodo loginUI
                     Addons.delay(1);
                     loginUI(unikut);
                     break;
-                case 'e':
-                    // Exibe todos os usuarios cadastrados até o momento (APENAS PARA TESTES)
+                case 'e': // Exibe todos os usuarios cadastrados até o momento (APENAS PARA TESTES)
                     System.out.println("/Lista de usuarios cadastrados/");
                     unikut.showAccounts();
                     break;
-                default:
-                    // Exibição caso a opção não esteja no menu
-                    System.out.println("Oops, não temos essa opção :/");
-                    Addons.delay(1);
+                default: // Reiniciar menu se a opção não estiver listada
                     break;
             }
         } while (menuInput != '0');
