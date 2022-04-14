@@ -26,9 +26,9 @@ public class SocialNetwork {
             System.out.println("Você não possui solicitações no momento");
         }else{
             for (User u : user.getFriendRequests()) {
-                System.out.println("Solicitação de amizade enviada por: " + u.getLogin());
+                System.out.println("Solicitação de amizade pendente de: " + u.getLogin());
             } 
-            System.out.println("TIP: Para aceitar, envie solicitação para o login");
+            System.out.println("Para aceitar, envie solicitação para o login");
         }
     }
 
