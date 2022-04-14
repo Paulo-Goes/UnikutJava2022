@@ -39,7 +39,7 @@ public class ProfileSettings {
     static void optionsUI(Conta loggedAccount) {
         System.out.println("\n< > unikut.com/" + loggedAccount.getLogin() + "/editProfile");
         System.out.println();
-        System.out.println("Your Profile Settings");
+        System.out.println("Edição de perfil");
         System.out.println("1 - Alterar nome de exibição");
         System.out.println("2 - Alterar senha");
         System.out.println("0 - Retornar à home");
@@ -51,15 +51,12 @@ public class ProfileSettings {
         String newName;
         int op;
 
-        System.out.println("Insira seu novo nome de exibição ");
+        System.out.println("Mudar nome de exibição \n Insira seu novo nome de exibição");
         newName = in.nextLine();
 
-        System.out.println("Seu nome de exibição atual é: " + loggedAccount.getNome());
-        System.out.println();
-        System.out.println("Seu novo nome de exibição será: " + newName);
+        System.out.println("Seu nome de exibição atual é: " + loggedAccount.getNome()+"\n\nSeu novo nome de exibição será: " + newName);
         Addons.delay(3);
-        System.out.println("1 - Confirmar mudança");
-        System.out.println("2 - Descartar mudança");
+        System.out.println("1 - Confirmar mudança\n2 - Descatar mudança");
         op = in.nextInt();
 
         if (op == 1) {
@@ -69,7 +66,6 @@ public class ProfileSettings {
             return;
         } else {
             System.out.println("Nome de exibição mantido.");
-            System.out.println("Retornando ao menu...");
             Addons.delay(1);
             return;
         }
@@ -94,8 +90,7 @@ public class ProfileSettings {
 
         System.out.println("Tem certeza que deseja alterar a senha, " + loggedAccount.getNome() + " ?");
         Addons.delay(3);
-        System.out.println("1 - Sim c:");
-        System.out.println("2 - Não :c");
+        System.out.println("1 - Sim c:\n2 - Não :c");
 
         op = in.nextInt();
 
