@@ -5,21 +5,21 @@ import java.util.ArrayList;
 public class Contas {
     private ArrayList<Conta> contas = new ArrayList<>();
 
-       public Conta login(String login, String senha) {
+    public Conta login(String login, String senha) {
         Conta acc = search(login);
-        if(acc == null){
+        if (acc == null) {
             return null;
-        }else{
+        } else {
             if (acc.getSenha().equals(senha)) {
                 return acc;
             }
         }
-        
+
         return null;
     }
 
     public Conta search(String login) {
-        
+
         for (Conta conta : contas) {
             if (conta.getLogin().equals(login)) {
                 return conta;
