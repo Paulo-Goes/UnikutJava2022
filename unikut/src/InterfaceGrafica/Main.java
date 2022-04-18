@@ -2,6 +2,7 @@ package InterfaceGrafica;
 
 import Logica.*;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -54,21 +55,31 @@ public class Main {
     // Interface de login
     static void loginUI(SocialNetwork unikut) {
         String loginInput, senhaInput;
+        char op;
         Scanner in = new Scanner(System.in);
+        System.out.println("Voltar para o menu principal?");
+        System.out.println("S/N");
+        op = in.next().toLowerCase(Locale.ROOT).charAt(0);
+        while (op != 's' && op != 'n') {
+            System.out.println("Erro, digite uma opção válida!");
+            System.out.println("Voltar para o menu principal?");
+            System.out.println("S/N");
+            op = in.next().toLowerCase(Locale.ROOT).charAt(0);
+        }
+        if(op == 'n'){
         System.out.println("Conecte-se usando suas credenciais");
         do {
-            System.out.println("Insira o login: ");
-            loginInput = in.next();
-            in.nextLine();
-            System.out.println("Insira a senha: ");
-            senhaInput = in.next();
-            in.nextLine();
+                System.out.println("Insira o login: ");
+                loginInput = in.next();
+                in.nextLine();
+                System.out.println("Insira a senha: ");
+                senhaInput = in.next();
+                in.nextLine();
         } while (unikut.login(loginInput, senhaInput) == null); // função que retorna uma conta se as credencias
                                                                 // corresponderem a uma conta cadastrada
-
-        System.out.println("Login efetuado com sucesso!");
-        Addons.delay(1);
-        Home.main(unikut.login(loginInput, senhaInput)); // vai para a interface de login
+            System.out.println("Login efetuado com sucesso!");
+            Addons.delay(1);
+            Home.main(unikut.login(loginInput, senhaInput)); // vai para a interface de login
+        }
     }
-
 }
