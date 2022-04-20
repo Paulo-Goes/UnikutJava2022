@@ -102,20 +102,27 @@ public class ProfileSettings {
         System.out.println("Tem certeza que deseja alterar a senha, " + loggedAccount.getNome() + " ?");
         Addons.delay(3);
         System.out.println("1 - Sim c:\n2 - Não :c");
+        //Tratamento de um possivel exception
+        try {
+            op = in.nextInt();
 
-        op = in.nextInt();
+            if (op == 1) {
+                Main.unikut.changePassword(loggedAccount, newPassword); // Metodo que muda a senha na classe contas
+                System.out.println("Senha alterada com sucesso :)");
 
-        if (op == 1) {
-            Main.unikut.changePassword(loggedAccount, newPassword); // Metodo que muda a senha na classe contas
-            System.out.println("Senha alterada com sucesso :)");
-
-        } else {
-            System.out.println("A mudança foi descartadas Mr. " + loggedAccount.getNome() + " :)");
-
+            } else if (op == 2){
+                System.out.println("A mudança foi descartadas Mr. " + loggedAccount.getNome() + " :)");
+            }
+            else if (op == 0){
+                System.out.println("Retornando ao menu anterior.");
+            }else {
+                System.out.println("Opção invalida, digite uma opção válida.");
+            }
+            //Tratamento de um possivel exception
+        }catch (InputMismatchException e){
+            System.err.println("Opção inválida. Digite 1 ou 2 para validar o processo, retornando para o menu anterior.");
         }
-
         Addons.delay(2);
-
     }
 
 }
