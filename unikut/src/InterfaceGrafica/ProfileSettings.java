@@ -1,5 +1,6 @@
 package InterfaceGrafica;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import Logica.*;
 
@@ -58,19 +59,27 @@ public class ProfileSettings {
                 + "\n\nSeu novo nome de exibição será: " + newName);
         Addons.delay(3);
         System.out.println("1 - Confirmar mudança\n2 - Descatar mudança");
-        op = in.nextInt();
+        //Tratamento de um possivel exception
+        try {
+            op = in.nextInt();
 
-        if (op == 1) { // Condicionais para confirmar a alteração de nome
-            loggedAccount.setNome(newName);
-            System.out.println("Mudança efetuada, " + loggedAccount.getNome() + " :)");
-            Addons.delay(1);
-            return;
-        } else {
-            System.out.println("Nome de exibição mantido.");
-            Addons.delay(1);
-            return;
+            if (op == 1) { // Condicionais para confirmar a alteração de nome
+                loggedAccount.setNome(newName);
+                System.out.println("Mudança efetuada, " + loggedAccount.getNome() + " :)");
+                Addons.delay(1);
+                return;
+            } else if (op == 2){
+                System.out.println("Nome de exibição mantido.");
+                Addons.delay(1);
+                return;
+            }
+            else {
+                System.out.println("Opção invalida, digite uma opção válida.");
+            }
+            //Tratamento de um possivel exception
+        } catch (InputMismatchException e){
+            System.err.println("Opção inválida. Digite 1 ou 2 para validar o processo, retornando para o menu anterior.");
         }
-
     }
 
     static void changePasswordUI(User loggedAccount) { // Interface de mudança de senha
