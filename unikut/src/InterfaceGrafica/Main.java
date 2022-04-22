@@ -13,7 +13,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
         char menuInput;
 
-        // Intarface de opções
+        // Interface de opções
         do {
             // Exibe opções iniciais
             menuUI();
@@ -25,11 +25,11 @@ public class Main {
                     Addons.delay(1);
                     SignUp.main(unikut);
                     break;
-                case '2': // Logica de login no meotodo loginUI
+                case '2': // Logica de login no método loginUI
                     Addons.delay(1);
                     loginUI(unikut);
                     break;
-                case 'e': // Exibe todos os usuarios cadastrados até o momento (APENAS PARA TESTES)
+                case 'e': // Exibe todos os usuários cadastrados até o momento (APENAS PARA TESTES)
                     System.out.println("/Lista de usuarios cadastrados/");
                     unikut.showAccounts();
                     break;
@@ -42,7 +42,7 @@ public class Main {
         Addons.delay(2);
     }
 
-    // Meotodo que exibe as opções do menu
+    // Método que exibe as opções do menu
     static void menuUI() {
         System.out.println("\n< > unikut.com");
         System.out.println();

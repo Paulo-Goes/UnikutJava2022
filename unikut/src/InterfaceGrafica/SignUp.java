@@ -1,5 +1,6 @@
 package InterfaceGrafica;
 
+import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
 import Logica.*;
@@ -27,10 +28,23 @@ public class SignUp {
             login = input.next();
         }
 
-        // Solicita uma senha ao usuario
-        System.out.println("Insira uma Senha ");
+        // Solicita uma senha ao usuario como os critérios informados
+        System.out.println("Criação de senha:");
+        System.out.println("* Mais do que 6 caracteres");
+        System.out.println("* Letras maiúsculas e minúsculas");
+        System.out.println("* Números");
+        System.out.println("* Caracteres especiais");
+        System.out.println("Insira uma senha forte:");
         senha = input.next();
         input.nextLine();
+        
+        // Usuário é forçado à criar uma conta com os critérios informados
+        while (senhaForte(senha) != true) {
+            System.out.println("Senha muito fraca :/");
+            Addons.delay(350);
+            System.out.println("Insira outra senha: ");
+            senha = input.next();
+        }
 
         // Pergunta se o usuario deseja adicionar um nome
         System.out.println("Deseja inserir o nome? \n S/N");
@@ -59,6 +73,31 @@ public class SignUp {
 
         // Metodo para criar a conta
         unikut.createAccount(nome, login, senha);
+    }
+
+    // lógica para a senha ser válida 
+    static boolean senhaForte(String senha) {
+        
+        boolean numero = false;
+        boolean maiscula = false;
+        boolean minuscula = false;
+        boolean caracterEspecial = false;
+
+        if (senha.length() < 6) {
+            return false;
+        }
+        for (char c : senha.toCharArray()) {
+             if (c >= '0' && c <= '9') {
+                 numero = true;
+             } else if (c >= 'A' && c <= 'Z') {
+                 maiscula = true;
+             } else if (c >= 'a' && c <= 'z') {
+                 minuscula = true;
+             } else {
+                 caracterEspecial = true;
+             }
+        }
+        return numero && maiscula && minuscula && caracterEspecial;
     }
 
 }
