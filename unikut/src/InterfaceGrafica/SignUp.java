@@ -1,6 +1,5 @@
 package InterfaceGrafica;
 
-import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
 import Logica.*;
@@ -39,7 +38,7 @@ public class SignUp {
         input.nextLine();
         
         // Usuário é forçado à criar uma conta com os critérios informados
-        while (senhaForte(senha) != true) {
+        while (!senhaForte(senha)) {
             System.out.println("Senha muito fraca :/");
             Addons.delay(350);
             System.out.println("Insira outra senha: ");

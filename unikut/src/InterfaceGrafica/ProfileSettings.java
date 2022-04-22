@@ -1,6 +1,7 @@
 package InterfaceGrafica;
 
 import java.util.InputMismatchException;
+import java.util.Locale;
 import java.util.Scanner;
 import Logica.*;
 
@@ -14,9 +15,8 @@ public class ProfileSettings {
         do {
             optionsUI(editingAccount); // Exibe opções de edição de perfil
 
-            op = in.next().charAt(0);
+            op = in.next().toLowerCase(Locale.ROOT).charAt(0);
             in.nextLine();
-            Character.toLowerCase(op);
 
             switch (op) {
                 case '1': // Mudarnça de nome
@@ -67,11 +67,9 @@ public class ProfileSettings {
                 loggedAccount.setNome(newName);
                 System.out.println("Mudança efetuada, " + loggedAccount.getNome() + " :)");
                 Addons.delay(1);
-                return;
             } else if (op == 2){
                 System.out.println("Nome de exibição mantido.");
                 Addons.delay(1);
-                return;
             }
             else {
                 System.out.println("Opção invalida, digite uma opção válida.");

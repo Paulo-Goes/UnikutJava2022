@@ -42,7 +42,7 @@ public class SocialNetwork {
             LinkedList<String> receptorMessages;
 
             if (!map.containsKey(whosends)) {
-                map.put(whosends, new LinkedList<String>());
+                map.put(whosends, new LinkedList<>());
                 receptorMessages = receptor.getMessages().get(whosends);
                 receptorMessages.addFirst(message);
             } else {
