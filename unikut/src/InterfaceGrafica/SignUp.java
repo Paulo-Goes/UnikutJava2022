@@ -81,23 +81,23 @@ public class SignUp {
         boolean numero = false;
         boolean maiscula = false;
         boolean minuscula = false;
-        boolean caracterEspecial = false;
 
         if (senha.length() < 6) {
             return false;
         }
         for (char c : senha.toCharArray()) {
-             if (c >= '0' && c <= '9') {
+                 
+            if (c >= '0' && c <= '9') {
                  numero = true;
-             } else if (c >= 'A' && c <= 'Z') {
+            } 
+            else if (c >= 'A' && c <= 'Z') {
                  maiscula = true;
-             } else if (c >= 'a' && c <= 'z') {
+            } 
+            else if (c >= 'a' && c <= 'z') {
                  minuscula = true;
-             } else {
-                 caracterEspecial = true;
-             }
+            } 
         }
-        return numero && maiscula && minuscula && caracterEspecial;
+        return numero && maiscula && minuscula;
     }
 
 }
