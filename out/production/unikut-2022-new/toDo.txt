@@ -1,2 +1,12 @@
-- Implementar duas classes semelhantes herdarem de outra. EX: Criar classe PESSOA  e dela irá herdar USER e AMIGO
-- Criação de várias classes
+// APERFEIÇOAMENTO DO CÓDIGO COM USO DOS 4 PRINCÍPIOS DE POO \\
+
+4 PRINCÍPIOS:
+* Abstração
+* Encapsulamento
+* Herança
+* Polimorfismo
+
+- Implementar duas classes semelhantes herdarem de outra. EX: Criar classe PESSOA  e dela irá herdar USER e AMIGO;
+- Criação de várias classes para problemas diferentes;
+- Não chamar método atrás de método (Lei de Demeter);
+- Aperfeiçoar exceptions (se necessário);
