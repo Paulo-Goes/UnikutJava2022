@@ -1,0 +1,2 @@
+- Implementar duas classes semelhantes herdarem de outra. EX: Criar classe PESSOA  e dela irá herdar USER e AMIGO
+- Criação de várias classes
