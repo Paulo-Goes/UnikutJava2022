@@ -11,7 +11,7 @@ public class ProfileSettings {
         Scanner in = new Scanner(System.in);
         char op;
 
-        // Intarface de opções
+        // Interface de opções
         do {
             optionsUI(editingAccount); // Exibe opções de edição de perfil
 
