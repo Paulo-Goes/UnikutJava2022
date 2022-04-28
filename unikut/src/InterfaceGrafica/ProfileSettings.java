@@ -6,7 +6,6 @@ import java.util.Scanner;
 import Logica.*;
 
 public class ProfileSettings {
-
     public static void main(User editingAccount) {
         Scanner in = new Scanner(System.in);
         char op;
