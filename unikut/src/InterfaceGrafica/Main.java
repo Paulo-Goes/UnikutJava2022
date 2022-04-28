@@ -6,20 +6,16 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
-
     public static SocialNetwork unikut = new SocialNetwork();
-
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         char menuInput;
-
         // Interface de opções
         do {
             // Exibe opções iniciais
             menuUI();
             menuInput = input.next().charAt(0);
             input.nextLine();
-
             switch (menuInput) {
                 case '1': // Interface de criação de conta na classe SignUp
                     Addons.delay(1);
@@ -37,11 +33,9 @@ public class Main {
                     break;
             }
         } while (menuInput != '0');
-
         System.out.println("Foi bom enquanto durou :/");
         Addons.delay(2);
     }
-
     // Método que exibe as opções do menu
     static void menuUI() {
         System.out.println("\n< > unikut.com");
@@ -51,7 +45,6 @@ public class Main {
         System.out.println("2 - Login");
         System.out.println("0 - Sair");
     }
-
     // Interface de login
     static void loginUI(SocialNetwork unikut) {
         String loginInput, senhaInput;
