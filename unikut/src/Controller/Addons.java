@@ -1,4 +1,4 @@
-package Logica;
+package Controller;
 
 public class Addons {
 
