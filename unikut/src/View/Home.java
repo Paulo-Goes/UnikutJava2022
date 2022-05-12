@@ -11,47 +11,46 @@ public class Home {
     public static void main(User loggedAccount) {
         SocialNetwork unikut = Main.unikut;
 
-        try (Scanner input = new Scanner(System.in)) {
-            char menuInput;
+        Scanner input = new Scanner(System.in);
+        char menuInput;
 
             // Intarface de opções
-            do {
+        do {
                 // Exibe opções para usuarios logados
-                menuUI();
-                menuInput = input.next().charAt(0);
-                input.nextLine();
+            menuUI();
+            menuInput = input.next().charAt(0);
+            input.nextLine();
 
-                switch (menuInput) {
-                    case '1': // Edição de perfil
-                        Addons.delay(1);
-                        ProfileSettings.main(loggedAccount);
-                        break;
-                    case '2': // Adição de amigos
-                        Addons.delay(1);
-                        addFriendsUI(unikut, loggedAccount);
-                        break;
-                    case '3': // Envio de recados
-                        Addons.delay(1);
-                        sendMessageUI(unikut, loggedAccount);
-                        Addons.delay(2);
-                        break;
-                    case '4': // Exibir Amigos
-                        Main.unikut.showFrieds(loggedAccount);
-                        Addons.delay(2);
-                        break;
-                    case '5': // Exibir amigos Pendentes
-                        Main.unikut.showFriendsRequests(loggedAccount);
-                        Addons.delay(2);
-                        break;
-                    case '6': // Exibir Menssagens
-                        unikut.showMessages(loggedAccount);
-                        Addons.delay(2);
-                        break;
-                    default:
-                        break;
+            switch (menuInput) {
+                case '1': // Edição de perfil
+                    Addons.delay(1);
+                    ProfileSettings.main(loggedAccount);
+                    break;
+                case '2': // Adição de amigos
+                    Addons.delay(1);
+                    addFriendsUI(unikut, loggedAccount);
+                    break;
+                case '3': // Envio de recados
+                    Addons.delay(1);
+                    sendMessageUI(unikut, loggedAccount);
+                    Addons.delay(2);
+                    break;
+                case '4': // Exibir Amigos
+                    Main.unikut.showFrieds(loggedAccount);
+                    Addons.delay(2);
+                    break;
+                case '5': // Exibir amigos Pendentes
+                    Main.unikut.showFriendsRequests(loggedAccount);
+                    Addons.delay(2);
+                    break;
+                case '6': // Exibir Menssagens
+                    unikut.showMessages(loggedAccount);
+                    Addons.delay(2);
+                    break;
+                default:
+                    break;
                 }
-            } while (menuInput != '0');
-        }
+        } while (menuInput != '0');
 
     }
 

@@ -10,7 +10,7 @@ public class SignUp {
 
     // Interface de criação de conta
     public static void main(SocialNetwork unikut) {
-        try (Scanner input = new Scanner(System.in)) {
+        Scanner input = new Scanner(System.in);
             String nome, login, senha;
             char nameOptionInput;
 
@@ -74,7 +74,6 @@ public class SignUp {
 
             // Metodo para criar a conta
             unikut.createAccount(nome, login, senha);
-        }
     }
 
     // lógica para a senha ser válida 

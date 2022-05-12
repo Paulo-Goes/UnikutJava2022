@@ -10,29 +10,28 @@ import View.Main;
 
 public class ProfileSettings {
     public static void main(User editingAccount) {
-        try (Scanner in = new Scanner(System.in)) {
-            char op;
+        Scanner in = new Scanner(System.in);
+        char op;
             // Interface de opções
-            do {
-                optionsUI(editingAccount); // Exibe opções de edição de perfil
-                op = in.next().toLowerCase(Locale.ROOT).charAt(0);
-                in.nextLine();
-                switch (op) {
-                    case '1': // Mudarnça de nome
-                        Addons.delay(1);
-                        changeNameUI(editingAccount);
-                        break;
-                    case '2': // Mudança de senha
-                        Addons.delay(1);
-                        changePasswordUI(editingAccount);
-                        break;
-                    default: // Reiniciar menu se a opção não estiver listada
-                        System.out.println("Oops, essa opção ainda não existe :/");
-                        Addons.delay(1);
-                        break;
-                }
-            } while (op != '0');
-        }
+        do {
+            optionsUI(editingAccount); // Exibe opções de edição de perfil
+            op = in.next().toLowerCase(Locale.ROOT).charAt(0);
+            in.nextLine();
+            switch (op) {
+                case '1': // Mudarnça de nome
+                    Addons.delay(1);
+                    changeNameUI(editingAccount);
+                    break;
+                case '2': // Mudança de senha
+                    Addons.delay(1);
+                    changePasswordUI(editingAccount);
+                    break;
+                default: // Reiniciar menu se a opção não estiver listada
+                    System.out.println("Oops, essa opção ainda não existe :/");
+                    Addons.delay(1);
+                    break;
+            }
+        } while (op != '0');
     }
     static void optionsUI(User loggedAccount) { // Menu de opções de edição
         System.out.println("\n< > unikut.com/" + loggedAccount.getLogin() + "/edit");

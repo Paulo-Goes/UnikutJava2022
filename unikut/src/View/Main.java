@@ -9,32 +9,32 @@ import Controller.SocialNetwork;
 public class Main {
     public static SocialNetwork unikut = new SocialNetwork();
     public static void main(String[] args) {
-        try (Scanner input = new Scanner(System.in)) {
-            char menuInput;
-            // Interface de opções
-            do {
-                // Exibe opções iniciais
-                menuUI();
-                menuInput = input.next().charAt(0);
-                input.nextLine();
-                switch (menuInput) {
-                    case '1': // Interface de criação de conta na classe SignUp
-                        Addons.delay(1);
-                        SignUp.main(unikut);
-                        break;
-                    case '2': // Logica de login no método loginUI
-                        Addons.delay(1);
-                        loginUI(unikut);
-                        break;
-                    case 'e': // Exibe todos os usuários cadastrados até o momento (APENAS PARA TESTES)
-                        System.out.println("/Lista de usuarios cadastrados/");
-                        unikut.showAccounts();
-                        break;
-                    default: // Reiniciar menu se a opção não estiver listada
-                        break;
-                }
-            } while (menuInput != '0');
-        }
+        Scanner input = new Scanner(System.in);
+        char menuInput;
+        // Interface de opções
+        do {
+            // Exibe opções iniciais
+            menuUI();
+            menuInput = input.next().charAt(0);
+            input.nextLine();
+            switch (menuInput) {
+                case '1': // Interface de criação de conta na classe SignUp
+                    Addons.delay(1);
+                    SignUp.main(unikut);
+                    break;
+                case '2': // Logica de login no método loginUI
+                    Addons.delay(1);
+                    loginUI(unikut);
+                    break;
+                case 'e': // Exibe todos os usuários cadastrados até o momento (APENAS PARA TESTES)
+                    System.out.println("/Lista de usuarios cadastrados/");
+                    unikut.showAccounts();
+                    break;
+                default: // Reiniciar menu se a opção não estiver listada
+                    break;
+            }
+        } while (menuInput != '0');
+    
         System.out.println("Foi bom enquanto durou :/");
         Addons.delay(2);
     }
