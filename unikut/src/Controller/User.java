@@ -9,7 +9,7 @@ public class User implements Comparable<User> {
     private String nome;
     private String senha;
     protected LinkedList<User> friends = new LinkedList<>();
-    protected LinkedList<User> friendRequests = new LinkedList<>();
+    public LinkedList<User> friendRequests = new LinkedList<>();
     protected HashMap<User, LinkedList<String>> messages = new HashMap<>();
 
     public HashMap<User, LinkedList<String>> getMessages() {
@@ -39,7 +39,7 @@ public class User implements Comparable<User> {
         this.nome = nome;
     }
 
-    protected void setSenha(String senha) {
+    public void setSenha(String senha) {
         this.senha = senha;
     }
 
@@ -51,7 +51,7 @@ public class User implements Comparable<User> {
         return nome;
     }
 
-    protected String getSenha() {
+    public String getSenha() {
         return senha;
     }
 

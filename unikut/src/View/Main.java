@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import Controller.Addons;
-import Controller.SocialNetwork;
+import Model.SocialNetwork;
 
 public class Main {
     public static SocialNetwork unikut = new SocialNetwork();
@@ -30,8 +30,8 @@ public class Main {
                     System.out.println("/Lista de usuarios cadastrados/");
                     unikut.showAccounts();
                     break;
-                default: // Reiniciar menu se a opção não estiver listada
-                    break;
+            default: // Reiniciar menu se a opção não estiver listada
+                break;
             }
         } while (menuInput != '0');
     

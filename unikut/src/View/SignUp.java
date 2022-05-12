@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import Controller.Addons;
-import Controller.SocialNetwork;
+import Model.SocialNetwork;
 
 public class SignUp {
 

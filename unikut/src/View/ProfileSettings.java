@@ -1,4 +1,4 @@
-package Model;
+package View;
 
 import java.util.InputMismatchException;
 import java.util.Locale;
@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 import Controller.Addons;
 import Controller.User;
-import View.Main;
 
 public class ProfileSettings {
     public static void main(User editingAccount) {

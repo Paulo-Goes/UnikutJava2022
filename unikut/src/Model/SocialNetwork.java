@@ -1,7 +1,9 @@
-package Controller;
+package Model;
 
 import java.util.HashMap;
 import java.util.LinkedList;
+
+import Controller.User;
 
 public class SocialNetwork {
     private LinkedList<User> accounts = new LinkedList<>();

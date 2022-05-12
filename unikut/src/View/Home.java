@@ -3,9 +3,8 @@ package View;
 import java.util.Scanner;
 
 import Controller.Addons;
-import Controller.SocialNetwork;
 import Controller.User;
-import Model.ProfileSettings;
+import Model.SocialNetwork;
 
 public class Home {
     public static void main(User loggedAccount) {
