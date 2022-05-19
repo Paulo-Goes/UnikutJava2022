@@ -1,4 +1,4 @@
-package Controller;
+package Model;
 
 import java.util.HashMap;
 import java.util.LinkedList;

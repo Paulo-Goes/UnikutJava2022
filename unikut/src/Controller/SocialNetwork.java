@@ -1,30 +1,26 @@
-package Model;
+package Controller;
 
 import java.util.HashMap;
 import java.util.LinkedList;
-
-import Controller.User;
+import Model.*;
+import Exceptions.*;
 
 public class SocialNetwork {
     private LinkedList<User> accounts = new LinkedList<>();
 
     // Exibir menssagens de um usuario
-    public void printMessages(LinkedList<String> texts) {
-        if (texts == null) {
-            System.out.println("Não há novas messagens deste usuario");
-        } else {
+    private void printMessages(LinkedList<String> texts) {
             for (String s : texts) {
                 System.out.println(s);
             }
-        }
     }
 
     // Metodo para exibir menssagens
-    public void showMessages(User user) {
+    public void showMessages(User user) throws Exception{
         HashMap<User, LinkedList<String>> userMessages = user.getMessages();
 
-        if (userMessages == null) {
-            System.out.println("Não hà novos depoimentos para você");
+        if (userMessages.size() == 0) {
+            throw new EmptyInbox();
         } else {
             for (User key : userMessages.keySet()) {
                 System.out.println("[Menssagems de: " + key.getLogin() + "]");
@@ -34,11 +30,11 @@ public class SocialNetwork {
     }
 
     // Metodo para enviar depoimentos
-    public void sendMessage(String message, User whosends, String loginFromReceptor) {
+    public void sendMessage(String message, User whosends, String loginFromReceptor) throws Exception{
         User receptor = search(loginFromReceptor);
 
         if (receptor == null) {
-            System.out.println("Destinatário não existe");
+            throw new NullPointerException();
         } else {
             HashMap<User, LinkedList<String>> map = receptor.getMessages();
             LinkedList<String> receptorMessages;
@@ -56,8 +52,12 @@ public class SocialNetwork {
     }
 
     // Metodo para alterar senha
-    public void changePassword(User user, String password) {
-        user.setSenha(password);
+    public void changePassword(User user, String password) throws Exception{
+        if(!senhaForte(password)){
+            throw new WeakPassword();
+        }else{
+            user.setSenha(password);
+        }
     }
 
     // Metodo para exibir amigos
@@ -70,6 +70,31 @@ public class SocialNetwork {
             }
         }
     }
+
+     // lógica para a senha ser válida 
+    public boolean senhaForte(String senha) {
+        
+            boolean numero = false;
+            boolean maiscula = false;
+            boolean minuscula = false;
+    
+            if (senha.length() < 6) {
+                return false;
+            }
+            for (char c : senha.toCharArray()) {
+                
+                if (c >= '0' && c <= '9') {
+                    numero = true;
+                } 
+                else if (c >= 'A' && c <= 'Z') {
+                    maiscula = true;
+                } 
+                else if (c >= 'a' && c <= 'z') {
+                    minuscula = true;
+                } 
+            }
+            return numero && maiscula && minuscula;
+        }
 
     // Metodo para exibir solicitações existentes
     public void showFriendsRequests(User user) {
