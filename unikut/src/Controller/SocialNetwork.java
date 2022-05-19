@@ -34,7 +34,7 @@ public class SocialNetwork {
         User receptor = search(loginFromReceptor);
 
         if (receptor == null) {
-            throw new NullPointerException();
+            throw new UserDoNotExist();
         } else {
             HashMap<User, LinkedList<String>> map = receptor.getMessages();
             LinkedList<String> receptorMessages;
@@ -61,9 +61,9 @@ public class SocialNetwork {
     }
 
     // Metodo para exibir amigos
-    public void showFrieds(User user) {
+    public void showFrieds(User user) throws ZeroFriends {
         if (user.getFriends().isEmpty()) {
-            System.out.println("Você não tem amigos :c");
+            throw new ZeroFriends();
         } else {
             for (User u : user.getFriends()) {
                 System.out.println(u.getNome() + " (" + u.getLogin() + ")");
@@ -97,38 +97,36 @@ public class SocialNetwork {
         }
 
     // Metodo para exibir solicitações existentes
-    public void showFriendsRequests(User user) {
+    public void showFriendsRequests(User user) throws EmptyInbox {
 
         if (user.getFriendRequests().isEmpty()) {
-            System.out.println("Você não possui solicitações no momento");
+            throw new EmptyInbox();
         } else {
             for (User u : user.getFriendRequests()) {
                 System.out.println("Solicitação de amizade pendente de: " + u.getLogin());
             }
-            System.out.println("Para aceitar, envie solicitação para o login");
         }
     }
 
     // Metodo para enviar solicitações de amizade
-    public void sendFriendRequest(User whosends, String friendLogin) {
+    public void sendFriendRequest(User whosends, String friendLogin) throws Exception {
         User friend = search(friendLogin);
 
         if (friend == null) {
-            System.out.println("Usuario não encontrado");
+            throw new UserDoNotExist();
         } else if (friend == whosends) {
-            System.out.println("Não é possivel enviar uma solicitação para si mesmo");
+            throw new AlreadyFriends();
         } else if (whosends.getFriends().contains(friend) || friend.getFriends().contains(whosends)) {
-            System.out.println("Vocês já são amigos");
+            throw new AlreadyFriends();
         } else if (friend.getFriendRequests().contains(whosends)) {
-            System.out.println("Você já enviou a solicitação uma vez");
+            throw new AlreadySend();
         } else if (whosends.getFriendRequests().contains(friend)) {
             whosends.getFriends().add(friend);
             friend.getFriends().add(whosends);
             whosends.getFriendRequests().remove(friend);
-            System.out.println("Solicitação aceita");
+            throw new NotSolicitaion();
         } else {
             friend.friendRequests.add(whosends);
-            System.out.println("Solicitação de amizade enviada");
         }
 
     }
