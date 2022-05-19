@@ -37,11 +37,20 @@ public class Home {
                     Addons.delay(2);
                     break;
                 case '4': // Exibir Amigos
-                    Main.unikut.showFrieds(loggedAccount);
+                    try{
+                        Main.unikut.showFrieds(loggedAccount);
+                    }catch(final ZeroFriends e){
+                        System.out.println("You don't have any friends :c");
+                    }
                     Addons.delay(2);
                     break;
                 case '5': // Exibir amigos Pendentes
-                    Main.unikut.showFriendsRequests(loggedAccount);
+                    try{
+                        Main.unikut.showFriendsRequests(loggedAccount);
+                        System.out.println("Para aceitar, envie solicitação de volta para o login");
+                    }catch(final EmptyInbox e){
+                        System.out.println("You don't have any friends requests");
+                    }
                     Addons.delay(2);
                     break;
                 case '6': // Exibir Menssagens
@@ -74,16 +83,27 @@ public class Home {
     }
 
     // Adicionar amigo
-    static void addFriendsUI(SocialNetwork unikut, User loggedAccount) {
-        try (Scanner in = new Scanner(System.in)) {
-            String friendLogin;
+    static void addFriendsUI(SocialNetwork unikut, User loggedAccount) throws Exception {
+        Scanner in = new Scanner(System.in);
+        String friendLogin;
 
-            System.out.println("Adicionar amigos\nInsira o login do usuario");
-            friendLogin = in.next();
-            in.nextLine();
-
+        System.out.println("Adicionar amigos\nInsira o login do usuario");
+        friendLogin = in.next();
+        in.nextLine();
+        
+        try{
             unikut.sendFriendRequest(loggedAccount, friendLogin);
+            System.out.println("Solicitação enviada com sucesso!");
+        }catch(final AlreadyFriends af){
+            System.out.println("Vocês já são amigos");
+        }catch(final AlreadySend as){
+            System.out.println("A solicitação já foi enviada");
+        }catch(final NotSolicitaion ns){
+            System.out.println("Solicitação aceita");
+        }catch(final UserDoNotExist udne){
+            System.out.println("Usuario não encontrado");
         }
+        
         Addons.delay(2);
         System.out.println("\nRetornando a Home");
         Addons.delay(1);
@@ -102,7 +122,7 @@ public class Home {
         message = input.nextLine(); message = input.nextLine();
         try{
             unikut.sendMessage(message, loggedAccount, loginRecpetor);
-        }catch(NullPointerException e){
+        }catch(final UserDoNotExist e){
             System.out.println("User dosn't Exist");
         }
     }
