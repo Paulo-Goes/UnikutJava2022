@@ -164,7 +164,7 @@ public class SocialNetwork {
 
     }
 
-    // Meotodo para exibir as accounts cadastradas
+    // Meotodo para exibir as contas cadastradas
     public void showAccounts() {
         for (User conta : accounts) {
             System.out.println(conta);
