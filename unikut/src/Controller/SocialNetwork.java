@@ -6,13 +6,24 @@ import Model.*;
 import Exceptions.*;
 
 public class SocialNetwork {
+    private static SocialNetwork instance;
     private LinkedList<User> accounts = new LinkedList<>();
+
+    private SocialNetwork() {
+    }
+
+    public static synchronized SocialNetwork getInstance(){
+        if (instance == null){
+            instance = new SocialNetwork();
+        }
+        return instance;
+    }
 
     // Exibir menssagens de um usuario
     private void printMessages(LinkedList<String> texts) {
-            for (String s : texts) {
-                System.out.println(s);
-            }
+        for (String s : texts) {
+            System.out.println(s);
+        }
     }
 
     // Metodo para exibir menssagens
@@ -71,30 +82,30 @@ public class SocialNetwork {
         }
     }
 
-     // lógica para a senha ser válida 
+    // lógica para a senha ser válida
     public boolean senhaForte(String senha) {
-        
-            boolean numero = false;
-            boolean maiscula = false;
-            boolean minuscula = false;
-    
-            if (senha.length() < 6) {
-                return false;
-            }
-            for (char c : senha.toCharArray()) {
-                
-                if (c >= '0' && c <= '9') {
-                    numero = true;
-                } 
-                else if (c >= 'A' && c <= 'Z') {
-                    maiscula = true;
-                } 
-                else if (c >= 'a' && c <= 'z') {
-                    minuscula = true;
-                } 
-            }
-            return numero && maiscula && minuscula;
+
+        boolean numero = false;
+        boolean maiscula = false;
+        boolean minuscula = false;
+
+        if (senha.length() < 6) {
+            return false;
         }
+        for (char c : senha.toCharArray()) {
+
+            if (c >= '0' && c <= '9') {
+                numero = true;
+            }
+            else if (c >= 'A' && c <= 'Z') {
+                maiscula = true;
+            }
+            else if (c >= 'a' && c <= 'z') {
+                minuscula = true;
+            }
+        }
+        return numero && maiscula && minuscula;
+    }
 
     // Metodo para exibir solicitações existentes
     public void showFriendsRequests(User user) throws EmptyInbox {
