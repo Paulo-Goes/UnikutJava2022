@@ -165,7 +165,7 @@ public class Home {
     
     // Interface de mudança de nome no unikut
     static void changeNameUI(User loggedAccount) { 
-        try (Scanner in = new Scanner(System.in)) {
+        Scanner in = new Scanner(System.in);
             String newName;
             int op;
             System.out.println("\nMudar nome de exibição \n Insira seu novo nome de exibição");
@@ -192,7 +192,6 @@ public class Home {
                 //Tratamento de um possivel exception
             } catch (InputMismatchException e){
                 System.err.println("Opção inválida. Digite 1 ou 2 para validar o processo, retornando para o menu anterior.");
-            }
         }
     }
     
