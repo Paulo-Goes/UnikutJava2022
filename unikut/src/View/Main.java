@@ -66,6 +66,7 @@ public class Main {
             in.nextLine();
             if (unikut.login(loginInput, senhaInput) == null) {
                 System.out.println("Suas credencias não foram validadas.");
+                return;
             }
         } while (unikut.login(loginInput, senhaInput) == null); // função que retorna uma conta se as credencias
         // corresponderem a uma conta cadastrada
