@@ -198,7 +198,7 @@ public class Home {
     
     // Interface de mudança de senha
     static void changePasswordUI(User loggedAccount) throws Exception { 
-        try (Scanner in = new Scanner(System.in)) {
+        Scanner in = new Scanner(System.in);
             String newPassword, newPasswordCheckout;
             int op;
             do {
@@ -235,7 +235,6 @@ public class Home {
             }catch (InputMismatchException e){
                 System.err.println("Opção inválida. Digite 1 ou 2 para validar o processo, retornando para o menu anterior.");
             }
-        }
         Addons.delay(2);
     }
 }
