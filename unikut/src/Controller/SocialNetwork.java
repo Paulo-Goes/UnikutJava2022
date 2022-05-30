@@ -1,19 +1,14 @@
 package Controller;
 
-import java.util.HashMap;
 import java.util.LinkedList;
 import Model.*;
 import Exceptions.*;
 
-public class SocialNetwork {
+public class SocialNetwork extends DataBase {
     private static SocialNetwork instance;
-    private LinkedList<User> accounts = new LinkedList<>();
 
-    private SocialNetwork() {
-    }
-
-    public static synchronized SocialNetwork getInstance(){
-        if (instance == null){
+    public static synchronized SocialNetwork getInstance() {
+        if (instance == null) {
             instance = new SocialNetwork();
         }
         return instance;
@@ -27,46 +22,39 @@ public class SocialNetwork {
     }
 
     // Metodo para exibir menssagens
-    public void showMessages(User user) throws Exception{
-        HashMap<User, LinkedList<String>> userMessages = user.getMessages();
-
-        if (userMessages.size() == 0) {
+    public void showMessages(User user) throws Exception {
+        if (user.getMessages().size() == 0) {
             throw new EmptyInbox();
         } else {
-            for (User key : userMessages.keySet()) {
+            for (User key : user.getMessages().keySet()) {
                 System.out.println("[Menssagems de: " + key.getLogin() + "]");
-                printMessages(userMessages.get(key));
+                printMessages(user.getMessages().get(key));
             }
         }
     }
 
     // Metodo para enviar depoimentos
-    public void sendMessage(String message, User whosends, String loginFromReceptor) throws Exception{
+    public void sendMessage(String message, User whosends, String loginFromReceptor) throws Exception {
         User receptor = search(loginFromReceptor);
 
         if (receptor == null) {
             throw new UserDoNotExist();
         } else {
-            HashMap<User, LinkedList<String>> map = receptor.getMessages();
-            LinkedList<String> receptorMessages;
-
-            if (!map.containsKey(whosends)) {
-                map.put(whosends, new LinkedList<>());
-                receptorMessages = receptor.getMessages().get(whosends);
-                receptorMessages.addFirst(message);
+            if (!receptor.getMessages().containsKey(whosends)) {
+                receptor.getMessages().put(whosends, new LinkedList<>());
+                receptor.getMessages().get(whosends).addFirst(message);
             } else {
-                receptorMessages = receptor.getMessages().get(whosends);
-                receptorMessages.addLast(message);
+                receptor.getMessages().get(whosends).addLast(message);
             }
         }
 
     }
 
     // Metodo para alterar senha
-    public void changePassword(User user, String password) throws Exception{
-        if(!senhaForte(password)){
+    public void changePassword(User user, String password) throws Exception {
+        if (!senhaForte(password)) {
             throw new WeakPassword();
-        }else{
+        } else {
             user.setSenha(password);
         }
     }
@@ -96,11 +84,9 @@ public class SocialNetwork {
 
             if (c >= '0' && c <= '9') {
                 numero = true;
-            }
-            else if (c >= 'A' && c <= 'Z') {
+            } else if (c >= 'A' && c <= 'Z') {
                 maiscula = true;
-            }
-            else if (c >= 'a' && c <= 'z') {
+            } else if (c >= 'a' && c <= 'z') {
                 minuscula = true;
             }
         }
@@ -143,42 +129,16 @@ public class SocialNetwork {
     }
 
     // Função para verificar credenciais de login
-    public User login(String login, String senha) {
+    public User login(String login, String senha) throws Exception {
         User acc = search(login);
         if (acc == null) {
-            return null;
+            throw new InvalidCredentials();
         } else {
             if (acc.getSenha().equals(senha)) {
                 return acc;
+            } else {
+                throw new InvalidCredentials();
             }
-        }
-
-        return null;
-    }
-
-    // Função para procurar uma conta
-    public User search(String login) {
-
-        for (User conta : accounts) {
-            if (conta.getLogin().equals(login)) {
-                return conta;
-            }
-        }
-        return null;
-    }
-
-    // Metodo para inserir a conta na lista
-    public void createAccount(String nome, String login, String senha) {
-
-        User newACC = new User(nome, login, senha);
-        accounts.add(newACC);
-
-    }
-
-    // Meotodo para exibir as contas cadastradas
-    public void showAccounts() {
-        for (User conta : accounts) {
-            System.out.println(conta);
         }
     }
 
