@@ -4,7 +4,7 @@ import Controller.Exceptions.*;
 import Database.Accounts;
 import Model.*;
 
-public class SocialNetwork {
+public class DataBaseController {
     // Função para procurar uma conta
     public static User search(String login) {
 

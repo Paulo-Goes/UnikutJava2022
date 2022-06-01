@@ -3,7 +3,7 @@ package Controller;
 import Controller.Exceptions.*;
 import Model.*;
 
-public class Friends {
+public class AccountFriends {
     // Metodo para exibir amigos
     public static void showFrieds(User user) throws ZeroFriends {
         if (user.getFriends().isEmpty()) {
@@ -29,7 +29,7 @@ public class Friends {
 
     // Metodo para enviar solicitações de amizade
     public static void sendFriendRequest(User whosends, String friendLogin) throws Exception {
-        User friend = SocialNetwork.search(friendLogin);
+        User friend = DataBaseController.search(friendLogin);
 
         if (friend == null) {
             throw new UserDoNotExist();
