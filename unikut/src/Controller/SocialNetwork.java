@@ -1,17 +1,46 @@
 package Controller;
 
 import java.util.LinkedList;
-import Model.*;
-import Exceptions.*;
 
-public class SocialNetwork extends DataBase {
+import Controller.Exceptions.*;
+import Model.*;
+
+public class SocialNetwork{
     private static SocialNetwork instance;
+    protected LinkedList<User> accounts = new LinkedList<>();
 
     public static synchronized SocialNetwork getInstance() {
         if (instance == null) {
             instance = new SocialNetwork();
         }
         return instance;
+    }
+
+    // Função para procurar uma conta
+    public User search(String login) {
+
+        for (User conta : accounts) {
+            if (conta.getLogin().equals(login)) {
+                return conta;
+            }
+        }
+        return null;
+    }
+
+    // Meotodo para exibir as contas cadastradas
+    public void showAccounts() {
+        for (User conta : accounts) {
+            System.out.println(conta);
+        }
+
+    }
+
+    // Metodo para inserir a conta na lista
+    public void createAccount(String nome, String login, String senha) {
+
+        User newACC = new User(nome, login, senha);
+        accounts.add(newACC);
+
     }
 
     // Exibir menssagens de um usuario
@@ -123,7 +152,7 @@ public class SocialNetwork extends DataBase {
             whosends.getFriendRequests().remove(friend);
             throw new NotSolicitaion();
         } else {
-            friend.friendRequests.add(whosends);
+            friend.getFriendRequests().add(whosends);
         }
 
     }

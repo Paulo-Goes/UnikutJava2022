@@ -8,9 +8,9 @@ public class User implements Comparable<User> {
     private final String login;
     private String nome;
     private String senha;
-    protected LinkedList<User> friends = new LinkedList<>();
-    public LinkedList<User> friendRequests = new LinkedList<>();
-    protected HashMap<User, LinkedList<String>> messages = new HashMap<>();
+    private LinkedList<User> friends = new LinkedList<>();
+    private LinkedList<User> friendRequests = new LinkedList<>();
+    private HashMap<User, LinkedList<String>> messages = new HashMap<>();
 
     public HashMap<User, LinkedList<String>> getMessages() {
         return this.messages;

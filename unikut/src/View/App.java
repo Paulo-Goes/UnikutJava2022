@@ -4,13 +4,11 @@ import java.util.Scanner;
 
 import java.util.Locale;
 import Controller.*;
-import Exceptions.InvalidCredentials;
-import Model.*;
 
 public class App {
 
+    static Scanner in = new Scanner(System.in);
     public static void main(String[] args) throws Exception {
-        Scanner in = new Scanner(System.in);
         char menuInput;
 
         do {
@@ -35,7 +33,6 @@ public class App {
 
     // Interface de login
     static void loginUI() throws Exception {
-        Scanner in = new Scanner(System.in);
         String loginInput, senhaInput;
 
         System.out.println("Conecte-se usando suas credenciais");
@@ -54,7 +51,6 @@ public class App {
 
     // Interface de cadastro
     static void signUpUI() {
-        Scanner in = new Scanner(System.in);
         String nome, login, senha;
         char nameOptionInput;
 

@@ -4,13 +4,15 @@ import java.util.Scanner;
 import java.util.Locale;
 import Controller.Addons;
 import Controller.SocialNetwork;
+import Controller.Exceptions.*;
 import Model.User;
 import java.util.InputMismatchException;
-import Exceptions.*;
 
 public class Home {
+
+    static Scanner in = new Scanner(System.in);
+
     public static void main(User loggedAccount) throws Exception {
-        Scanner in = new Scanner(System.in);
         char menuInput;
 
         // Intarface de opções
@@ -68,7 +70,6 @@ public class Home {
 
     // Adicionar amigo
     static void addFriendsUI(User loggedAccount) throws Exception {
-        Scanner in = new Scanner(System.in);
         String friendLogin;
 
         System.out.println("Adicionar amigos\nInsira o login do usuario");
@@ -96,15 +97,14 @@ public class Home {
 
     // Envio de menssagem
     static void sendMessageUI(User loggedAccount) throws Exception {
-        Scanner input = new Scanner(System.in);
         String message, loginRecpetor;
 
         System.out.println("Insira o login do destinatario");
-        loginRecpetor = input.next();
+        loginRecpetor = in.next();
 
         System.out.println("Digite a menssagem abaixo: ");
-        message = input.nextLine();
-        message = input.nextLine();
+        message = in.nextLine();
+        message = in.nextLine();
         try {
             SocialNetwork.getInstance().sendMessage(message, loggedAccount, loginRecpetor);
         } catch (final UserDoNotExist e) {
@@ -114,7 +114,6 @@ public class Home {
 
     // Edição de perfil
     public static void profileSettings(User editingAccount) throws Exception {
-        Scanner in = new Scanner(System.in);
         char op;
         // Interface de opções
         do {
@@ -140,7 +139,6 @@ public class Home {
 
     // Interface de mudança de nome no unikut
     static void changeNameUI(User loggedAccount) {
-        Scanner in = new Scanner(System.in);
         String newName;
         int op;
         System.out.println("\nMudar nome de exibição \n Insira seu novo nome de exibição");
@@ -172,7 +170,6 @@ public class Home {
 
     // Interface de mudança de senha
     static void changePasswordUI(User loggedAccount) throws Exception {
-        Scanner in = new Scanner(System.in);
         String newPassword, newPasswordCheckout;
         int op;
         do {
