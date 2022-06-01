@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import java.util.Locale;
 import Controller.*;
+import View.loginView.Home;
 
 public class App {
 

@@ -4,7 +4,7 @@ import Model.*;
 
 public class Menus {
 
-    static void optionsUI(User loggedAccount) {
+    public static void optionsUI(User loggedAccount) {
         System.out.println("\n< > unikut.com/" + loggedAccount.getLogin() + "/edit");
         System.out.println();
         System.out.println("Edição de perfil");
@@ -13,7 +13,7 @@ public class Menus {
         System.out.println("0 - Retornar à home");
     }
 
-    static void mainUI() {
+    public static void mainUI() {
         System.out.println("\n< > unikut.com");
         System.out.println();
         System.out.println("| UNIKUT SOCIAL MEDIA © | ");
@@ -23,9 +23,9 @@ public class Menus {
     }
 
     // Exibir opções para usuario logado
-    static void loggedUI() {
+    public static void loggedUI(User loggedAccount) {
         System.out.println("\n< > unikut.com/Home/\n");
-        System.out.println("Home");
+        System.out.println("Ola "+loggedAccount.getNome()+" :)");
         System.out.println("1 - Edição de perfil");
         System.out.println("2 - Adicionar amigos");
         System.out.println("3 - Enviar Depoimento");

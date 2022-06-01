@@ -17,7 +17,7 @@ public class Home {
         // Intarface de opções
         do {
             // Exibe opções para usuarios logados
-            Menus.loggedUI();
+            Menus.loggedUI(loggedAccount);
             menuInput = in.next().charAt(0);
             in.nextLine();
 
