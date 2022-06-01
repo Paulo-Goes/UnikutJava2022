@@ -48,42 +48,6 @@ public class SocialNetwork {
 
     }
 
-    // Exibir menssagens de um usuario
-    private void printMessages(LinkedList<String> texts) {
-        for (String s : texts) {
-            System.out.println(s);
-        }
-    }
-
-    // Metodo para exibir menssagens
-    public void showMessages(User user) throws Exception {
-        if (user.getMessages().size() == 0) {
-            throw new EmptyInbox();
-        } else {
-            for (User key : user.getMessages().keySet()) {
-                System.out.println("[Menssagems de: " + key.getLogin() + "]");
-                printMessages(user.getMessages().get(key));
-            }
-        }
-    }
-
-    // Metodo para enviar depoimentos
-    public void sendMessage(String message, User whosends, String loginFromReceptor) throws Exception {
-        User receptor = search(loginFromReceptor);
-
-        if (receptor == null) {
-            throw new UserDoNotExist();
-        } else {
-            if (!receptor.getMessages().containsKey(whosends)) {
-                receptor.getMessages().put(whosends, new LinkedList<>());
-                receptor.getMessages().get(whosends).addFirst(message);
-            } else {
-                receptor.getMessages().get(whosends).addLast(message);
-            }
-        }
-
-    }
-
     // Metodo para alterar senha
     public void changePassword(User user, String password) throws Exception {
         if (!senhaForte(password)) {
@@ -93,19 +57,8 @@ public class SocialNetwork {
         }
     }
 
-    // Metodo para exibir amigos
-    public void showFrieds(User user) throws ZeroFriends {
-        if (user.getFriends().isEmpty()) {
-            throw new ZeroFriends();
-        } else {
-            for (User u : user.getFriends()) {
-                System.out.println(u.getNome() + " (" + u.getLogin() + ")");
-            }
-        }
-    }
-
     // lógica para a senha ser válida
-    public boolean senhaForte(String senha) {
+    private boolean senhaForte(String senha) {
 
         boolean numero = false;
         boolean maiscula = false;
@@ -125,41 +78,6 @@ public class SocialNetwork {
             }
         }
         return numero && maiscula && minuscula;
-    }
-
-    // Metodo para exibir solicitações existentes
-    public void showFriendsRequests(User user) throws EmptyInbox {
-
-        if (user.getFriendRequests().isEmpty()) {
-            throw new EmptyInbox();
-        } else {
-            for (User u : user.getFriendRequests()) {
-                System.out.println("Solicitação de amizade pendente de: " + u.getLogin());
-            }
-        }
-    }
-
-    // Metodo para enviar solicitações de amizade
-    public void sendFriendRequest(User whosends, String friendLogin) throws Exception {
-        User friend = search(friendLogin);
-
-        if (friend == null) {
-            throw new UserDoNotExist();
-        } else if (friend == whosends) {
-            throw new AlreadyFriends();
-        } else if (whosends.getFriends().contains(friend) || friend.getFriends().contains(whosends)) {
-            throw new AlreadyFriends();
-        } else if (friend.getFriendRequests().contains(whosends)) {
-            throw new AlreadySend();
-        } else if (whosends.getFriendRequests().contains(friend)) {
-            whosends.getFriends().add(friend);
-            friend.getFriends().add(whosends);
-            whosends.getFriendRequests().remove(friend);
-            throw new NotSolicitaion();
-        } else {
-            friend.getFriendRequests().add(whosends);
-        }
-
     }
 
     // Função para verificar credenciais de login
