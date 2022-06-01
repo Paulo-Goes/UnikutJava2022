@@ -70,23 +70,25 @@ public class App {
 
         if (choice == 's') {
             System.out.println("Insira o nome");
-            nome = in.nextLine(); nome = in.nextLine();
+            nome = in.nextLine();
+            nome = in.nextLine();
         }
 
         Addons.delay(2);
 
-        try{
+        try {
             SocialNetwork.getInstance().createAccount(nome, login, senha);
-        }catch(Exception e){
-            do{
+        } catch (Exception e) {
+            do {
                 System.out.println("\nDeseja retornar ao menu inicial? S/N");
-            choice = in.next().charAt(0); choice = Character.toLowerCase(choice);
-            if(choice == 's'){
-                return;
-            }else{
-                signUpUI();
-            }
-            }while(choice != 's' && choice != 'n');
+                choice = in.next().charAt(0);
+                choice = Character.toLowerCase(choice);
+                if (choice == 's') {
+                    return;
+                } else {
+                    signUpUI();
+                }
+            } while (choice != 's' && choice != 'n');
         }
         System.out.println("Conta criada com sucesso! use suas credenciais para fazer login na proxima vez :)");
     }

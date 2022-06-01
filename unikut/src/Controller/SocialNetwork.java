@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import Controller.Exceptions.*;
 import Model.*;
 
-public class SocialNetwork{
+public class SocialNetwork {
     private static SocialNetwork instance;
     protected LinkedList<User> accounts = new LinkedList<>();
 
@@ -36,11 +36,11 @@ public class SocialNetwork{
     }
 
     // Metodo para inserir a conta na lista
-    public void createAccount(String nome, String login, String senha) throws Exception{
+    public void createAccount(String nome, String login, String senha) throws Exception {
 
-        if(search(login)!= null){
+        if (search(login) != null) {
             throw new LoginInUse();
-        }else if(!senhaForte(senha)){
+        } else if (!senhaForte(senha)) {
             throw new WeakPassword();
         }
         User newACC = new User(nome, login, senha);
