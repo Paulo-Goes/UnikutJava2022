@@ -38,7 +38,7 @@ public class AccountController {
 
     // Função para verificar credenciais de login
     public static User login(String login, String senha) throws Exception {
-        User acc = SocialNetwork.search(login);
+        User acc = DataBaseController.search(login);
         if (acc == null) {
             throw new InvalidCredentials();
         } else {

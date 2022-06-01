@@ -35,7 +35,7 @@ public class AccountFriends {
             throw new UserDoNotExist();
         } else if (friend == whosends) {
             throw new AlreadyFriends();
-        } else if (whosends.getFriends().contains(friend) || friend.getFriends().contains(whosends)) {
+        } else if (whosends.getFriends().contains(friend)) {
             throw new AlreadyFriends();
         } else if (friend.getFriendRequests().contains(whosends)) {
             throw new AlreadySend();
