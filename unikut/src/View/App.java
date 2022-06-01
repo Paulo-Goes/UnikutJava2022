@@ -36,7 +36,7 @@ public class App {
     static void loginUI() throws Exception {
         String loginInput, senhaInput;
 
-        System.out.println("Conecte-se usando suas credenciais");
+        System.out.println("\n< > unikut.com/login \n");
         System.out.println("Insira o login: ");
         loginInput = in.next();
         System.out.println("Insira a senha: ");
@@ -46,14 +46,23 @@ public class App {
         try {
             Home.main(SocialNetwork.getInstance().login(loginInput, senhaInput));
         } catch (Exception e) {
-            return;
+            char choice;
+            do {
+                System.out.println("\nDeseja retornar ao menu inicial? S/N");
+                choice = in.next().charAt(0);
+                choice = Character.toLowerCase(choice);
+                if (choice == 's') {
+                    return;
+                } else {
+                    loginUI();
+                }
+            } while (choice != 's' && choice != 'n');
         }
     }
 
     // Interface de cadastro
     static void signUpUI() {
-        String nome = "convidado", login, senha;
-        char choice;
+        String nome = "convidado", login, senha; char choice;
 
         System.out.println("\n< > unikut.com/signup");
 
@@ -70,8 +79,7 @@ public class App {
 
         if (choice == 's') {
             System.out.println("Insira o nome");
-            nome = in.nextLine();
-            nome = in.nextLine();
+            nome = in.nextLine(); nome = in.nextLine();
         }
 
         Addons.delay(2);
