@@ -40,6 +40,8 @@ public class SocialNetwork{
 
         if(search(login)!= null){
             throw new LoginInUse();
+        }else if(!senhaForte(senha)){
+            throw new WeakPassword();
         }
         User newACC = new User(nome, login, senha);
         accounts.add(newACC);

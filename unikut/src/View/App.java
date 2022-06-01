@@ -52,50 +52,29 @@ public class App {
 
     // Interface de cadastro
     static void signUpUI() {
-        String nome, login, senha;
+        String nome = "convidado", login, senha;
         char choice;
 
-        System.out.println("\nCriação de conta");
+        System.out.println("\n< > unikut.com/signup");
 
-        // Solicita um login ao usuario
         System.out.println("Insira um Login");
         login = in.next();
 
-        // Solicita uma senha ao usuario como os critérios informados
-        System.out.println("Criação de senha:");
-        System.out.println("* Mais do que 6 caracteres");
-        System.out.println("* Letras maiúsculas e minúsculas");
-        System.out.println("* Números");
-        System.out.println("* Caracteres especiais");
-        System.out.println("Insira uma senha forte:");
+        System.out.println("Crie sua senha:");
         senha = in.next();
 
-        // Usuário é forçado à criar uma conta com os critérios informados
-        while (!SocialNetwork.getInstance().senhaForte(senha)) {
-            System.out.println("Senha muito fraca :/");
-            Addons.delay(350);
-            System.out.println("Insira outra senha: ");
-            senha = in.next();
-        }
-
-        // Pergunta se o usuario deseja adicionar um nome
         do {
             System.out.println("Deseja inserir o nome? \n S/N");
             choice = in.next().toLowerCase(Locale.ROOT).charAt(0);
         } while (choice != 's' && choice != 'n');
 
-        // Logica para vincular um nome a conta ou definir nome como "convidado"
         if (choice == 's') {
             System.out.println("Insira o nome");
-            nome = in.nextLine();
-            nome = in.nextLine();
-        } else {
-            nome = "convidado";
+            nome = in.nextLine(); nome = in.nextLine();
         }
 
         Addons.delay(2);
 
-        // Metodo para criar a conta
         try{
             SocialNetwork.getInstance().createAccount(nome, login, senha);
         }catch(Exception e){
