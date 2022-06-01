@@ -27,7 +27,6 @@ public class App {
                     loginUI();
                     break;
                 default: // Reiniciar menu se a opção não estiver listada
-                    System.out.println("oops, opção não listada.");
                     break;
             }
         } while (menuInput != '0');
@@ -45,7 +44,7 @@ public class App {
 
         Addons.delay(1);
         try {
-            Home.main(SocialNetwork.getInstance().login(loginInput, senhaInput));
+            Home.main(AccountController.login(loginInput, senhaInput));
         } catch (Exception e) {
             char choice;
             do {
@@ -86,7 +85,7 @@ public class App {
         Addons.delay(2);
 
         try {
-            SocialNetwork.getInstance().createAccount(nome, login, senha);
+            SocialNetwork.createAccount(nome, login, senha);
         } catch (Exception e) {
             do {
                 System.out.println("\nDeseja retornar ao menu inicial? S/N");
