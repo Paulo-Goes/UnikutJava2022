@@ -2,7 +2,7 @@ package View.loginView;
 
 import java.util.Scanner;
 import Controller.Addons;
-import Controller.SocialNetwork;
+import Controller.*;
 import Controller.Exceptions.*;
 import Model.User;
 import View.Menus;
@@ -37,7 +37,7 @@ public class Home {
                     break;
                 case '4': // Exibir Amigos
                     try {
-                        SocialNetwork.getInstance().showFrieds(loggedAccount);
+                        Friends.showFrieds(loggedAccount);
                     } catch (final ZeroFriends e) {
                         System.out.println("Você não possui amigos");
                     }
@@ -45,7 +45,7 @@ public class Home {
                     break;
                 case '5': // Exibir amigos Pendentes
                     try {
-                        SocialNetwork.getInstance().showFriendsRequests(loggedAccount);
+                        Friends.showFriendsRequests(loggedAccount);
                         System.out.println("Para aceitar, envie solicitação de volta para o login");
                     } catch (final EmptyInbox e) {
                         System.out.println("Não há solicitações");
@@ -54,7 +54,7 @@ public class Home {
                     break;
                 case '6': // Exibir Menssagens
                     try {
-                        SocialNetwork.getInstance().showMessages(loggedAccount);
+                        Messages.showMessages(loggedAccount);
                     } catch (final EmptyInbox e) {
                         System.out.println("Não hà novos depoimentos");
                     }
@@ -76,7 +76,7 @@ public class Home {
         in.nextLine();
 
         try {
-            SocialNetwork.getInstance().sendFriendRequest(loggedAccount, friendLogin);
+            Friends.sendFriendRequest(loggedAccount, friendLogin);
             System.out.println("Solicitação enviada com sucesso!");
         } catch (final AlreadyFriends af) {
             System.out.println("Vocês já são amigos");
@@ -106,7 +106,7 @@ public class Home {
         message = in.nextLine();
 
         try {
-            SocialNetwork.getInstance().sendMessage(message, loggedAccount, loginRecpetor);
+            Messages.sendMessage(message, loggedAccount, loginRecpetor);
         } catch (final UserDoNotExist e) {
             System.out.println("Usuario não encontrado");
         }

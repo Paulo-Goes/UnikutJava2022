@@ -50,12 +50,12 @@ public class ProfileSettings {
         String newPassword;
 
         System.out.println("\n\n< > unikut.com/" + loggedAccount.getLogin()
-                + "/edit/password \nInsira seu novo nome de exibição:");
+                + "/edit/password \nInsira sua nova senha:");
         newPassword = in.next();
 
         Addons.delay(3);
         try {
-            SocialNetwork.getInstance().changePassword(loggedAccount, newPassword);
+            AccountController.changePassword(loggedAccount, newPassword);
         } catch (Exception e) {
             return;
         }

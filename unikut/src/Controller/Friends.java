@@ -4,17 +4,8 @@ import Controller.Exceptions.*;
 import Model.*;
 
 public class Friends {
-    private static Friends instance;
-
-    public static synchronized Friends getInstance() {
-        if (instance == null) {
-            instance = new Friends();
-        }
-        return instance;
-    }
-
     // Metodo para exibir amigos
-    public void showFrieds(User user) throws ZeroFriends {
+    public static void showFrieds(User user) throws ZeroFriends {
         if (user.getFriends().isEmpty()) {
             throw new ZeroFriends();
         } else {
@@ -25,7 +16,7 @@ public class Friends {
     }
 
     // Metodo para exibir solicitações existentes
-    public void showFriendsRequests(User user) throws EmptyInbox {
+    public static void showFriendsRequests(User user) throws EmptyInbox {
 
         if (user.getFriendRequests().isEmpty()) {
             throw new EmptyInbox();
@@ -37,8 +28,8 @@ public class Friends {
     }
 
     // Metodo para enviar solicitações de amizade
-    public void sendFriendRequest(User whosends, String friendLogin) throws Exception {
-        User friend = SocialNetwork.getInstance().search(friendLogin);
+    public static void sendFriendRequest(User whosends, String friendLogin) throws Exception {
+        User friend = SocialNetwork.search(friendLogin);
 
         if (friend == null) {
             throw new UserDoNotExist();
