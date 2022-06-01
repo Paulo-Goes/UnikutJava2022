@@ -1,9 +1,12 @@
 package View.loginView;
 
 import java.util.Scanner;
-import Controller.*;
+
+import Controller.AccountController;
+
 import java.util.Locale;
-import Model.*;
+import Model.User;
+import Others.Addons;
 import View.Menus;
 
 public class ProfileSettings {

@@ -4,7 +4,7 @@ import Controller.Exceptions.*;
 import Model.*;
 import java.util.LinkedList;
 
-public class Messages {
+public class AccountMessages {
     // Exibir menssagens de um usuario
     private static void printMessages(LinkedList<String> texts) {
         for (String s : texts) {
@@ -26,7 +26,7 @@ public class Messages {
 
     // Metodo para enviar depoimentos
     public static void sendMessage(String message, User whosends, String loginFromReceptor) throws Exception {
-        User receptor = SocialNetwork.search(loginFromReceptor);
+        User receptor = DataBaseController.search(loginFromReceptor);
 
         if (receptor == null) {
             throw new UserDoNotExist();
