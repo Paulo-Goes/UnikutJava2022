@@ -1,11 +1,11 @@
-package View;
+package View.loginView;
 
 import java.util.Scanner;
-import java.util.Locale;
 import Controller.Addons;
 import Controller.SocialNetwork;
 import Controller.Exceptions.*;
 import Model.User;
+import View.Menus;
 
 public class Home {
 
@@ -24,7 +24,7 @@ public class Home {
             switch (menuInput) {
                 case '1': // Edição de perfil
                     Addons.delay(1);
-                    profileSettings(loggedAccount);
+                    ProfileSettings.main(loggedAccount);
                     break;
                 case '2': // Adição de amigos
                     Addons.delay(1);
@@ -112,58 +112,4 @@ public class Home {
         }
     }
 
-    // Edição de perfil
-    public static void profileSettings(User editingAccount) throws Exception {
-        char op;
-        // Interface de opções
-        do {
-            Menus.optionsUI(editingAccount); // Exibe opções de edição de perfil
-            op = in.next().toLowerCase(Locale.ROOT).charAt(0);
-            in.nextLine();
-            switch (op) {
-                case '1': // Mudarnça de nome
-                    Addons.delay(1);
-                    changeNameUI(editingAccount);
-                    break;
-                case '2': // Mudança de senha
-                    Addons.delay(1);
-                    changePasswordUI(editingAccount);
-                    break;
-                default: // Reiniciar menu se a opção não estiver listada
-                    System.out.println("Oops, essa opção ainda não existe :/");
-                    Addons.delay(1);
-                    break;
-            }
-        } while (op != '0');
-    }
-
-    // Interface de mudança de nome no unikut
-    static void changeNameUI(User loggedAccount) {
-        String newName;
-
-        System.out.println(
-                "\n\n< > unikut.com/" + loggedAccount.getLogin() + "/edit/name \nInsira seu novo nome de exibição:");
-        newName = in.nextLine();
-        newName = in.nextLine();
-        Addons.delay(3);
-        loggedAccount.setNome(newName); // lidar com exception
-    }
-
-    // Interface de mudança de senha
-    static void changePasswordUI(User loggedAccount) throws Exception {
-        String newPassword;
-
-        System.out.println("\n\n< > unikut.com/" + loggedAccount.getLogin()
-                + "/edit/password \nInsira seu novo nome de exibição:");
-        newPassword = in.next();
-
-        Addons.delay(3);
-        try {
-            SocialNetwork.getInstance().changePassword(loggedAccount, newPassword);
-        } catch (final WeakPassword e) {
-            return;
-        }
-        System.out.println("Senha alterada com sucesso :)");
-        Addons.delay(2);
-    }
 }
