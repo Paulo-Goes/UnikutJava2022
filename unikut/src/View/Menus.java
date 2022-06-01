@@ -1,6 +1,6 @@
 package View;
 
-import Model.*;
+import Model.User;
 
 public class Menus {
 

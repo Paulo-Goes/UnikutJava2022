@@ -1,4 +1,5 @@
-package Controller;
+package Others;
+
 
 public class Addons {
 
