@@ -8,6 +8,7 @@ import Controller.*;
 public class App {
 
     static Scanner in = new Scanner(System.in);
+
     public static void main(String[] args) throws Exception {
         char menuInput;
 
@@ -52,21 +53,13 @@ public class App {
     // Interface de cadastro
     static void signUpUI() {
         String nome, login, senha;
-        char nameOptionInput;
+        char choice;
 
         System.out.println("\nCriação de conta");
 
         // Solicita um login ao usuario
         System.out.println("Insira um Login");
         login = in.next();
-
-        // Força o usuario a inserir um login que não foi utilizado
-        while (SocialNetwork.getInstance().search(login) != null) {
-            System.out.println("O login informado já está sendo usado :/");
-            Addons.delay(350);
-            System.out.println("Insira um login: ");
-            login = in.next();
-        }
 
         // Solicita uma senha ao usuario como os critérios informados
         System.out.println("Criação de senha:");
@@ -88,11 +81,11 @@ public class App {
         // Pergunta se o usuario deseja adicionar um nome
         do {
             System.out.println("Deseja inserir o nome? \n S/N");
-            nameOptionInput = in.next().toLowerCase(Locale.ROOT).charAt(0);
-        } while (nameOptionInput != 's' && nameOptionInput != 'n');
+            choice = in.next().toLowerCase(Locale.ROOT).charAt(0);
+        } while (choice != 's' && choice != 'n');
 
         // Logica para vincular um nome a conta ou definir nome como "convidado"
-        if (nameOptionInput == 's') {
+        if (choice == 's') {
             System.out.println("Insira o nome");
             nome = in.nextLine();
             nome = in.nextLine();
@@ -100,10 +93,22 @@ public class App {
             nome = "convidado";
         }
 
-        System.out.println("Conta criada com sucesso! use suas credenciais para fazer login na proxima vez :)");
         Addons.delay(2);
 
         // Metodo para criar a conta
-        SocialNetwork.getInstance().createAccount(nome, login, senha);
+        try{
+            SocialNetwork.getInstance().createAccount(nome, login, senha);
+        }catch(Exception e){
+            do{
+                System.out.println("\nDeseja retornar ao menu inicial? S/N");
+            choice = in.next().charAt(0); choice = Character.toLowerCase(choice);
+            if(choice == 's'){
+                return;
+            }else{
+                signUpUI();
+            }
+            }while(choice != 's' && choice != 'n');
+        }
+        System.out.println("Conta criada com sucesso! use suas credenciais para fazer login na proxima vez :)");
     }
 }

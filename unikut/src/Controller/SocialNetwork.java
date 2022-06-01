@@ -36,8 +36,11 @@ public class SocialNetwork{
     }
 
     // Metodo para inserir a conta na lista
-    public void createAccount(String nome, String login, String senha) {
+    public void createAccount(String nome, String login, String senha) throws Exception{
 
+        if(search(login)!= null){
+            throw new LoginInUse();
+        }
         User newACC = new User(nome, login, senha);
         accounts.add(newACC);
 
