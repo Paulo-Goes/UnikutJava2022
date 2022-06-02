@@ -35,6 +35,7 @@ public class SignUp extends Thread{
 
         try {
             DataBaseController.createAccount(nome, login, senha);
+            System.out.println("Conta criada com sucesso! use suas credenciais para fazer login na proxima vez :)");
         } catch (Exception e) {
             do {
                 System.out.println("\nDeseja retornar ao menu inicial? S/N");
@@ -47,6 +48,5 @@ public class SignUp extends Thread{
                 }
             } while (choice != 's' && choice != 'n');
         }
-        System.out.println("Conta criada com sucesso! use suas credenciais para fazer login na proxima vez :)");
     }
 }
