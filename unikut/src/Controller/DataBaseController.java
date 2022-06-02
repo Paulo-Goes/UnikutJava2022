@@ -1,14 +1,13 @@
 package Controller;
 
-import Controller.Exceptions.*;
-import Database.Accounts;
+import Exceptions.*;
 import Model.*;
 
 public class DataBaseController {
     // Função para procurar uma conta
     public static User search(String login) {
 
-        for (User conta : Accounts.getInstance().getAccounts()) {
+        for (User conta : DataBase.getInstance().getAccounts()) {
             if (conta.getLogin().equals(login)) {
                 return conta;
             }
@@ -18,7 +17,7 @@ public class DataBaseController {
 
     // Meotodo para exibir as contas cadastradas
     public static void showAccounts() {
-        for (User conta : Accounts.getInstance().getAccounts()) {
+        for (User conta : DataBase.getInstance().getAccounts()) {
             System.out.println(conta);
         }
 
@@ -33,7 +32,7 @@ public class DataBaseController {
             throw new WeakPassword();
         }
         User newACC = new User(nome, login, senha);
-        Accounts.getInstance().getAccounts().add(newACC);
+        DataBase.getInstance().getAccounts().add(newACC);
 
     }
 }

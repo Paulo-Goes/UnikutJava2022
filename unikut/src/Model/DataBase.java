@@ -1,17 +1,15 @@
-package Database;
+package Model;
 
 import java.util.LinkedList;
 
-import Model.User;
-
-public class Accounts {
+public class DataBase {
     private LinkedList<User> accounts = new LinkedList<>();
 
-    private static Accounts instance;
+    private static DataBase instance;
 
-    public static synchronized Accounts getInstance() {
+    public static synchronized DataBase getInstance() {
         if (instance == null) {
-            instance = new Accounts();
+            instance = new DataBase();
         }
         return instance;
     }

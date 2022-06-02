@@ -22,6 +22,10 @@ public class App {
                 case '1': // Interface de criação de conta na classe SignUp
                     Addons.delay(1);
                     cadastro.start();
+                    try{
+                        cadastro.join();
+                    }catch(InterruptedException e){
+                    }
                     break;
                 case '2': // Logica de login no método loginUI
                     Addons.delay(1);

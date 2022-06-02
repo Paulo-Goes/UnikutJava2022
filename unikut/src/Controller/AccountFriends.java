@@ -1,6 +1,6 @@
 package Controller;
 
-import Controller.Exceptions.*;
+import Exceptions.*;
 import Model.*;
 
 public class AccountFriends {

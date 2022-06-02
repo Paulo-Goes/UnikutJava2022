@@ -1,8 +1,9 @@
 package Controller;
 
-import Controller.Exceptions.*;
 import Model.*;
 import java.util.LinkedList;
+
+import Exceptions.*;
 
 public class AccountMessages {
     // Exibir menssagens de um usuario
