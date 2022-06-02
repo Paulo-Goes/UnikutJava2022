@@ -5,9 +5,10 @@ import java.util.Scanner;
 import Others.Addons;
 
 import Controller.DataBaseController;
+
 public class SignUp extends Thread{
 
-    static Scanner in = new Scanner(System.in);
+    private Scanner in = new Scanner(System.in);
 
     public void run() {
         String nome = "convidado", login, senha; char choice;

@@ -3,7 +3,7 @@ package View.loginView;
 import java.util.Scanner;
 
 import Controller.*;
-import Controller.Exceptions.*;
+import Exceptions.*;
 import Model.User;
 import Others.Addons;
 import View.Menus;

@@ -1,4 +1,4 @@
-package Controller.Exceptions;
+package Exceptions;
 
 public class InvalidCredentials extends Exception{
 
