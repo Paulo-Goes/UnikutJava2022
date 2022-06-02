@@ -11,7 +11,7 @@ public class App {
     static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
-        SignUp cadastro = new SignUp();
+        SignUp cadastro;
         char menuInput;
 
         do {
@@ -21,6 +21,7 @@ public class App {
             switch (menuInput) {
                 case '1': // Interface de criação de conta na classe SignUp
                     Addons.delay(1);
+                    cadastro = new SignUp();
                     cadastro.start();
                     try{
                         cadastro.join();
