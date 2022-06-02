@@ -27,12 +27,11 @@ public class DataBaseController {
     public static void createAccount(String nome, String login, String senha) throws Exception {
 
         if (search(login) != null) {
-            throw new LoginInUse();
+            throw new LoginInUseException();
         } else if (!AccountController.senhaForte(senha)) {
-            throw new WeakPassword();
+            throw new WeakPasswordException();
         }
-        User newACC = new User(nome, login, senha);
-        DataBase.getInstance().getAccounts().add(newACC);
+        DataBase.getInstance().getAccounts().add(AccountController.factoryUser(login, senha, nome));
 
     }
 }

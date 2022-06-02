@@ -1,5 +1,8 @@
 package Controller;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+
 import Exceptions.*;
 import Model.*;
 
@@ -7,7 +10,7 @@ public class AccountController {
     // Metodo para alterar senha
     public static void changePassword(User user, String password) throws Exception {
         if (!senhaForte(password)) {
-            throw new WeakPassword();
+            throw new WeakPasswordException();
         } else {
             user.setSenha(password);
         }
@@ -40,13 +43,30 @@ public class AccountController {
     public static User login(String login, String senha) throws Exception {
         User acc = DataBaseController.search(login);
         if (acc == null) {
-            throw new InvalidCredentials();
+            throw new InvalidCredentialsException();
         } else {
             if (acc.getSenha().equals(senha)) {
                 return acc;
             } else {
-                throw new InvalidCredentials();
+                throw new InvalidCredentialsException();
             }
         }
+    }
+
+    //Factory method
+    protected static User factoryUser(String login, String password, String name){
+        LinkedList<User> friends = new LinkedList<>();
+        LinkedList<User> friendRequests = new LinkedList<>();
+        HashMap<User, LinkedList<String>> messages = new HashMap<>();
+
+        User user = new User();
+        user.setLogin(login);
+        user.setSenha(password);
+        user.setNome(name);
+        user.setFriends(friends);
+        user.setFriendRequests(friendRequests);
+        user.setMessages(messages);
+
+        return user;
     }
 }

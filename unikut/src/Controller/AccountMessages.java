@@ -16,7 +16,7 @@ public class AccountMessages {
     // Metodo para exibir menssagens
     public static void showMessages(User user) throws Exception {
         if (user.getMessages().size() == 0) {
-            throw new EmptyInbox();
+            throw new EmptyInboxException();
         } else {
             for (User key : user.getMessages().keySet()) {
                 System.out.println("[Menssagems de: " + key.getLogin() + "]");
@@ -30,7 +30,7 @@ public class AccountMessages {
         User receptor = DataBaseController.search(loginFromReceptor);
 
         if (receptor == null) {
-            throw new UserDoNotExist();
+            throw new UserDoNotExistException();
         } else {
             if (!receptor.getMessages().containsKey(whosends)) {
                 receptor.getMessages().put(whosends, new LinkedList<>());

@@ -1,8 +1,8 @@
 package Exceptions;
 
-public class LoginInUse extends Exception{
+public class LoginInUseException extends Exception{
     
-    public LoginInUse() {
+    public LoginInUseException() {
         System.out.println("\nEste login já está em uso.");
     }
 }

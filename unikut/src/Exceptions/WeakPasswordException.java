@@ -1,8 +1,8 @@
 package Exceptions;
 
-public class WeakPassword extends Exception{
+public class WeakPasswordException extends Exception{
     
-    public WeakPassword() {
+    public WeakPasswordException() {
         System.out.println("\nA senha inseria não é forte o suficiente, uma senha forte deve conter: ");
         System.out.println("* Mais do que 6 caracteres");
         System.out.println("* Letras maiúsculas e minúsculas");

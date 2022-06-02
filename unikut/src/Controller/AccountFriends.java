@@ -5,9 +5,9 @@ import Model.*;
 
 public class AccountFriends {
     // Metodo para exibir amigos
-    public static void showFrieds(User user) throws ZeroFriends {
+    public static void showFrieds(User user) throws ZeroFriendsException {
         if (user.getFriends().isEmpty()) {
-            throw new ZeroFriends();
+            throw new ZeroFriendsException();
         } else {
             for (User u : user.getFriends()) {
                 System.out.println(u.getNome() + " (" + u.getLogin() + ")");
@@ -16,10 +16,10 @@ public class AccountFriends {
     }
 
     // Metodo para exibir solicitações existentes
-    public static void showFriendsRequests(User user) throws EmptyInbox {
+    public static void showFriendsRequests(User user) throws EmptyInboxException {
 
         if (user.getFriendRequests().isEmpty()) {
-            throw new EmptyInbox();
+            throw new EmptyInboxException();
         } else {
             for (User u : user.getFriendRequests()) {
                 System.out.println("Solicitação de amizade pendente de: " + u.getLogin());
@@ -32,18 +32,18 @@ public class AccountFriends {
         User friend = DataBaseController.search(friendLogin);
 
         if (friend == null) {
-            throw new UserDoNotExist();
+            throw new UserDoNotExistException();
         } else if (friend == whosends) {
-            throw new AlreadyFriends();
+            throw new AlreadyFriendsException();
         } else if (whosends.getFriends().contains(friend)) {
-            throw new AlreadyFriends();
+            throw new AlreadyFriendsException();
         } else if (friend.getFriendRequests().contains(whosends)) {
-            throw new AlreadySend();
+            throw new AlreadySendException();
         } else if (whosends.getFriendRequests().contains(friend)) {
             whosends.getFriends().add(friend);
             friend.getFriends().add(whosends);
             whosends.getFriendRequests().remove(friend);
-            throw new NotSolicitaion();
+            throw new NotSolicitaionException();
         } else {
             friend.getFriendRequests().add(whosends);
         }

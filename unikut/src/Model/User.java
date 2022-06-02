@@ -5,12 +5,26 @@ import java.util.LinkedList;
 
 public class User implements Comparable<User> {
 
-    private final String login;
+    private String login;
     private String nome;
     private String senha;
-    private LinkedList<User> friends = new LinkedList<>();
-    private LinkedList<User> friendRequests = new LinkedList<>();
-    private HashMap<User, LinkedList<String>> messages = new HashMap<>();
+    private LinkedList<User> friends;
+    private LinkedList<User> friendRequests;
+    private HashMap<User, LinkedList<String>> messages;
+
+    
+    
+    public void setFriends(LinkedList<User> friends) {
+        this.friends = friends;
+    }
+
+    public void setFriendRequests(LinkedList<User> friendRequests) {
+        this.friendRequests = friendRequests;
+    }
+
+    public void setMessages(HashMap<User, LinkedList<String>> messages) {
+        this.messages = messages;
+    }
 
     public HashMap<User, LinkedList<String>> getMessages() {
         return this.messages;
@@ -24,15 +38,13 @@ public class User implements Comparable<User> {
         return friendRequests;
     }
 
-    public User(String nome, String login, String senha) {
-        this.login = login;
-        this.nome = nome;
-        this.senha = senha;
-    }
-
     @Override
     public int compareTo(User c) {
         return c.getLogin().compareTo(this.login);
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public void setNome(String nome) {

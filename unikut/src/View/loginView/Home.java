@@ -39,7 +39,7 @@ public class Home {
                 case '4': // Exibir Amigos
                     try {
                         AccountFriends.showFrieds(loggedAccount);
-                    } catch (final ZeroFriends e) {
+                    } catch (final ZeroFriendsException e) {
                         System.out.println("Você não possui amigos");
                     }
                     Addons.delay(2);
@@ -48,7 +48,7 @@ public class Home {
                     try {
                         AccountFriends.showFriendsRequests(loggedAccount);
                         System.out.println("Para aceitar, envie solicitação de volta para o login");
-                    } catch (final EmptyInbox e) {
+                    } catch (final EmptyInboxException e) {
                         System.out.println("Não há solicitações");
                     }
                     Addons.delay(2);
@@ -56,7 +56,7 @@ public class Home {
                 case '6': // Exibir Menssagens
                     try {
                         AccountMessages.showMessages(loggedAccount);
-                    } catch (final EmptyInbox e) {
+                    } catch (final EmptyInboxException e) {
                         System.out.println("Não hà novos depoimentos");
                     }
                     Addons.delay(2);
@@ -79,13 +79,13 @@ public class Home {
         try {
             AccountFriends.sendFriendRequest(loggedAccount, friendLogin);
             System.out.println("Solicitação enviada com sucesso!");
-        } catch (final AlreadyFriends af) {
+        } catch (final AlreadyFriendsException af) {
             System.out.println("Vocês já são amigos");
-        } catch (final AlreadySend as) {
+        } catch (final AlreadySendException as) {
             System.out.println("A solicitação já foi enviada");
-        } catch (final NotSolicitaion ns) {
+        } catch (final NotSolicitaionException ns) {
             System.out.println("Solicitação aceita");
-        } catch (final UserDoNotExist udne) {
+        } catch (final UserDoNotExistException udne) {
             System.out.println("Usuario não encontrado");
         }
 
@@ -108,7 +108,7 @@ public class Home {
 
         try {
             AccountMessages.sendMessage(message, loggedAccount, loginRecpetor);
-        } catch (final UserDoNotExist e) {
+        } catch (final UserDoNotExistException e) {
             System.out.println("Usuario não encontrado");
         }
     }
